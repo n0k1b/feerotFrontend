@@ -1,5 +1,5 @@
 .container {
-  height: 50px;
+  height: 70px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -54,7 +54,7 @@
 
 .searchBar {
   width: 466px;
-  height: 20px;
+  height: 30px;
   padding: 5px 10px;
   border: 3px solid #195e73;
   outline: none;
@@ -62,7 +62,7 @@
 
 .search {
   background-color: #195e73;
-  height: 36px;
+  height: 46px;
   width: 35px;
   display: flex;
   justify-content: center;
@@ -136,7 +136,7 @@
   height: fit-content;
   width: 62%;
   position: absolute;
-  top: 50px;
+  top: 70px;
   left: 27.5vw;
   display: flex;
   justify-content: space-between;
