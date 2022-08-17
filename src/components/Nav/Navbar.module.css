@@ -1,0 +1,213 @@
+.container {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+.category:hover {
+  background-color: rgb(214, 214, 214);
+  transition: 0.5s ease;
+}
+
+.categoryBackground {
+  background-color: rgb(214, 214, 214);
+}
+
+.category p {
+  font-size: 18px;
+  color: #195e73;
+}
+
+.hamburger {
+  width: 20px;
+  margin-right: 10px;
+  color: #195e73;
+}
+
+.downArrow {
+  width: 15px;
+  margin-left: 10px;
+  margin-top: 1px;
+  color: #195e73;
+}
+
+.searchBarSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchBar {
+  width: 466px;
+  height: 20px;
+  padding: 5px 10px;
+  border: 3px solid #195e73;
+  outline: none;
+}
+
+.search {
+  background-color: #195e73;
+  height: 36px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchIcon {
+  width: 15px;
+  color: #ffff;
+}
+
+.hr {
+  background-color: rgb(201, 201, 201);
+  height: 1px;
+}
+
+.signIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100px;
+  cursor: pointer;
+}
+
+.signIn:hover {
+  background-color: rgb(214, 214, 214);
+  transition: 0.5s ease;
+}
+
+.signIn p {
+  font-size: 18px;
+  color: #195e73;
+}
+
+.lockIcon {
+  margin-right: 5px;
+  color: #195e73;
+}
+
+.section2 {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.section2 p {
+  color: rgb(104, 103, 103);
+}
+
+.new,
+.popular,
+.hotDeals,
+.help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 5px;
+  color: rgb(104, 103, 103);
+}
+
+.floatingMenu {
+  background-color: rgb(214, 214, 214);
+  height: fit-content;
+  width: 62%;
+  position: absolute;
+  top: 50px;
+  left: 27.5vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  z-index: 1;
+}
+
+.categoryTitles {
+  background-color: rgb(214, 214, 214);
+  height: 100%;
+  width: 19%;
+}
+
+.categoryItems {
+  background-color: rgb(233, 233, 233);
+  height: 100%;
+  width: 80%;
+}
+
+.categoryTitles_clothings,
+.categoryTitles_electronics {
+  height: 50px;
+  background-color: #ffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.categoryTitles_clothings:hover,
+.categoryTitles_electronics:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.categoryTitles_clothings p,
+.categoryTitles_electronics p {
+  margin-left: 10px;
+}
+
+.cItem_categories {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cItem_category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cItem_category img {
+  width: 10vw;
+  border-radius: 5px;
+}
+
+.cItem_rS_title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.active {
+  background-color: rgb(214, 214, 214);
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}

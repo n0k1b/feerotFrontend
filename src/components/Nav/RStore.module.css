@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin: 10px 10px;
+  padding: 5px 10px;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.text {
+  font-size: 20px;
+  color: #195e73;
+  font-weight: bold;
+}
+
+.offer {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
