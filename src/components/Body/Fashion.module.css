@@ -1,0 +1,14 @@
+.container {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
