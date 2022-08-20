@@ -1,23 +1,18 @@
-import HealthABeauty from "../components/Body/HealthABeauty";
-import Popular from "../components/Body/Popular";
-import ShoesAFashion from "../components/Body/ShoesAFashion";
-import StoresMembersLove from "../components/Body/StoresMembersLove";
-import TopPicks from "../components/Body/TopPicks";
+import HealthABeauty from "../components/Body/Home/HealthABeauty";
+import Popular from "../components/Body/Home/Popular";
+import ShoesAFashion from "../components/Body/Home/ShoesAFashion";
+import StoresMembersLove from "../components/Body/Home/StoresMembersLove";
+import TopPicks from "../components/Body/Home/TopPicks";
 import CarouselMain from "../components/Carousel/CarouselMain";
-import Navbar from "../components/Nav/Navbar";
 import styles from "./HomePage.module.css";
-import DealsOTWeek from "../components/Body/DealsOTWeek";
-import Fashion from "../components/Body/Fashion";
+import DealsOTWeek from "../components/Body/Home/DealsOTWeek";
+import Fashion from "../components/Body/Home/Fashion";
 
 const HomePage = () => {
   return (
     <>
-      <Navbar />
-      {/* <div className={styles.carousel}>
-        <CarouselMain />
-      </div> */}
-
       <div className={styles.container}>
+        <CarouselMain />
         <StoresMembersLove />
         <TopPicks />
         <ShoesAFashion />

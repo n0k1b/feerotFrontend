@@ -1,9 +1,9 @@
-import styles from "./HealthABeauty.module.css";
-import StoreBig from "../UI/StoreBig";
+import styles from "./DealsOTWeek.module.css";
+import StoreBigSD from "../../UI/StoreBigSD";
 
-import bata from "../../image/bata.png";
-import zoro from "../../image/zoro.png";
-import visible from "../../image/visible.png";
+import bata from "../../../image/bata.png";
+import zoro from "../../../image/zoro.png";
+import visible from "../../../image/visible.png";
 
 const DUMMY_DATA = [
   {
@@ -65,15 +65,15 @@ const DUMMY_DATA = [
   },
 ];
 
-const HealthABeauty = () => {
+const DealsOTWeek = () => {
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.title}>Health & Beauty with 15% Cash Back</p>
+        <p className={styles.title}>Deals of the week</p>
 
         <div className={styles.grid}>
           {DUMMY_DATA.map((data) => (
-            <StoreBig
+            <StoreBigSD
               name={data.name}
               image={data.image}
               discount={data.discount}
@@ -86,4 +86,4 @@ const HealthABeauty = () => {
   );
 };
 
-export default HealthABeauty;
+export default DealsOTWeek;

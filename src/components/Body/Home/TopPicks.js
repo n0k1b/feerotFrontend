@@ -1,10 +1,9 @@
-import StoreSmall from "../UI/StoreSmall";
 import styles from "./TopPicks.module.css";
-import bata from "../../image/bata.png";
-import odyssey from "../../image/odyssey.jpg";
-import yellow from "../../image/yellow.png";
-import lotto from "../../image/lotto.png";
-import daraz from "../../image/daraz.png";
+import StoreSmall from "../../UI/StoreSmall";
+import odyssey from "../../../image/odyssey.jpg";
+import yellow from "../../../image/yellow.png";
+import lotto from "../../../image/lotto.png";
+import daraz from "../../../image/daraz.png";
 
 const DUMMY_DATA = [
   {

@@ -1,12 +1,12 @@
 import styles from "./Popular.module.css";
-import StoreBig from "../UI/StoreBig";
+import StoreBig from "../../UI/StoreBig";
 
-import bata from "../../image/bata.png";
-import lotto from "../../image/lotto.png";
-import odyssey from "../../image/odyssey2.png";
-import zoro from "../../image/zoro.png";
-import daraz from "../../image/daraz.png";
-import yellow from "../../image/yellow.png";
+import bata from "../../../image/bata.png";
+import lotto from "../../../image/lotto.png";
+import odyssey from "../../../image/odyssey2.png";
+import zoro from "../../../image/zoro.png";
+import daraz from "../../../image/daraz.png";
+import yellow from "../../../image/yellow.png";
 
 const DUMMY_DATA = [
   {
