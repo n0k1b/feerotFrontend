@@ -3,7 +3,8 @@ import Navbar from "./components/Nav/Navbar";
 import HomePage from "./Pages/HomePage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import DetailedProduct from "./Pages/DetailedProduct";
+import BrandWShop from "./Pages/BrandWShop";
+import BrandShop from "./Pages/BrandShop";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/yellow">
-            <DetailedProduct />
+            <BrandWShop />
+          </Route>
+          <Route path="/bata">
+            <BrandShop />
           </Route>
         </Switch>
       </div>

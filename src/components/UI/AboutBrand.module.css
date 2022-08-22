@@ -1,0 +1,24 @@
+.container {
+  border: 1px solid #e2e2e2;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 30px;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #636363;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.title p {
+  margin-left: 20px;
+}
+
+.discription {
+  font-size: 20px;
+  color: #636363;
+  padding: 10px 20px;
+}

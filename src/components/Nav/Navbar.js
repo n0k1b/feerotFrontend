@@ -21,6 +21,7 @@ import { BsChat } from "react-icons/bs";
 
 import { useState } from "react";
 import RStore from "./RStore";
+import { Link } from "react-router-dom";
 
 const NAV_CL_DUMMY_DATA = [
   {
@@ -78,7 +79,9 @@ const Navbar = () => {
   return (
     <>
       <div className={styles.container}>
-        <img className={styles.logo} src={logo} alt="logo" />
+        <Link to="/">
+          <img className={styles.logo} src={logo} alt="logo" />
+        </Link>
 
         <div
           onMouseEnter={mouseEnter}
