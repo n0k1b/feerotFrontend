@@ -1,21 +1,9 @@
-.container {
-  background-color: #e2e2e2;
-  padding: 20px;
-}
-
 .title {
-  font-size: 20px;
-  color: #012d3a;
+  font-size: 25px;
+  color: #686868;
   margin-bottom: 20px;
-  text-align: center;
   font-weight: bold;
 }
 
 .cards {
-  /* display: grid;
-  grid-template-columns: auto auto; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
