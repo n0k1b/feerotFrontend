@@ -1,9 +1,10 @@
+.container {
+  margin-bottom: 50px;
+}
+
 .title {
   font-size: 25px;
   color: #686868;
   margin-bottom: 20px;
   font-weight: bold;
-}
-
-.cards {
 }

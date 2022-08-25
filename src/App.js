@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BrandWShop from "./Pages/BrandWShop";
 import BrandShop from "./Pages/BrandShop";
+import ProductDetails from "./Pages/ProductDetails";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/bata">
             <BrandShop />
+          </Route>
+          <Route path="/product">
+            <ProductDetails />
           </Route>
         </Switch>
       </div>

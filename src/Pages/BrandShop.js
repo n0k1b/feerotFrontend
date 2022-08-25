@@ -6,6 +6,7 @@ import bata from "../image/bata.png";
 import Offer from "../components/UI/Offer";
 import AboutBrand from "../components/UI/AboutBrand";
 import SpecialDealsACoupons from "../components/Body/Detailed Brand/SpecialDealsACoupons";
+import TermsACondition from "../components/Body/Detailed Brand/TermsACondition";
 
 const BrandShop = () => {
   return (
@@ -37,6 +38,8 @@ const BrandShop = () => {
         />
 
         <SpecialDealsACoupons />
+
+        <TermsACondition />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import sneakerImg2 from "../../../image/extra-3.webp";
 import sneakerImg3 from "../../../image/extra-4.webp";
 import sneakerImg4 from "../../../image/extra-5.webp";
 import sneakerImg5 from "../../../image/extra-6.webp";
+import { Link } from "react-router-dom";
 
 const DUMMY_DATA = [
   {
@@ -56,12 +57,14 @@ const Products = () => {
         <p className={styles.title}>Products</p>
         <div className={styles.products}>
           {DUMMY_DATA.map((data, i) => (
-            <Item
-              key={i}
-              image={data.image}
-              title={data.title}
-              price={data.price}
-            />
+            <Link className={styles.link} to="/product">
+              <Item
+                key={i}
+                image={data.image}
+                title={data.title}
+                price={data.price}
+              />
+            </Link>
           ))}
         </div>
       </div>

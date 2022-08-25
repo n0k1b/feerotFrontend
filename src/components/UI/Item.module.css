@@ -16,7 +16,15 @@
   width: 300px;
 }
 
-.heart {
+.heart1 {
+  position: absolute;
+  font-size: 25px;
+  bottom: 20px;
+  right: 20px;
+  color: #686868;
+}
+
+.heart2 {
   position: absolute;
   font-size: 25px;
   bottom: 20px;
