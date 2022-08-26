@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .imgContainer {
@@ -16,6 +17,7 @@
 
 .imgSmall img {
   margin-bottom: 10px;
+  width: 50px;
   cursor: pointer;
 }
 
@@ -68,4 +70,58 @@
   width: 100%;
   padding: 10px 10px;
   margin-top: 10px;
+}
+
+.addToBag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.buttonContainer {
+  width: 100%;
+}
+
+.heartContainer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  border-radius: 50px;
+  margin-left: 20px;
+}
+
+.heart1 {
+  color: #686868;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.heart2 {
+  color: red;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.deliveryOptions {
+  color: #686868;
+  border: 1px solid #eeeeee;
+  padding: 10px 20px;
+}
+
+.fDelivery,
+.fReturn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #686868;
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #686868;
 }

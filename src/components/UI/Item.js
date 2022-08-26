@@ -2,6 +2,7 @@ import styles from "./Item.module.css";
 
 import { BsHeartFill } from "react-icons/bs";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Item = (props) => {
   const [liked, setLiked] = useState(false);
@@ -14,7 +15,9 @@ const Item = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.imgContainer}>
-          <img src={props.image} alt="product_image" />
+          <Link className={styles.link} to="/product">
+            <img src={props.image} alt="product_image" />
+          </Link>
           {!liked && (
             <BsHeartFill onClick={likeHandler} className={styles.heart1} />
           )}
@@ -23,7 +26,11 @@ const Item = (props) => {
           )}
         </div>
 
-        <p className={styles.title}>{props.title}</p>
+        <p className={styles.title}>
+          <Link className={styles.link} to="/product">
+            {props.title}
+          </Link>
+        </p>
 
         <p className={styles.price}>${props.price}</p>
       </div>

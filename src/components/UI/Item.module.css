@@ -43,3 +43,8 @@
   font-size: 18px;
   color: #6d6d6d;
 }
+
+.link {
+  text-decoration: none;
+  color: #505050;
+}

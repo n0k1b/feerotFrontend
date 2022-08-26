@@ -1,0 +1,14 @@
+.container {
+  margin-bottom: 30px;
+}
+
+.titleContainer {
+  font-size: 25px;
+  border: 1px solid #e2e2e2;
+  padding: 10px 20px;
+  background-color: #ebebeb;
+}
+
+.content {
+  border: 1px solid #e2e2e2;
+}

@@ -11,8 +11,10 @@ const List = (props) => {
         </div>
 
         <ul className={styles.ui}>
-          {props.list.map((data) => (
-            <li className={styles.li}>{data}</li>
+          {props.list.map((data, i) => (
+            <li key={i} className={styles.li}>
+              {data}
+            </li>
           ))}
         </ul>
       </div>

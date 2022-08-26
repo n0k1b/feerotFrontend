@@ -4,20 +4,29 @@ import img1 from "../../../image/1.webp";
 import img2 from "../../../image/2.webp";
 import img3 from "../../../image/3.webp";
 import img4 from "../../../image/4.webp";
-import { AiOutlineLeft } from "react-icons/ai";
-import { AiOutlineRight } from "react-icons/ai";
+
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { BsHeartFill } from "react-icons/bs";
+import { TbTruckDelivery } from "react-icons/tb";
+import { BsArrowReturnLeft } from "react-icons/bs";
 
 import { useState } from "react";
 import OfferCode from "../../UI/OfferCode";
+import ButtonGreen from "../../UI/ButtonGreen";
 
 const IMAGE_LIST = [img1, img2, img3, img4];
 
 const DetailedProduct = () => {
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [activeImg, setActiveImg] = useState(IMAGE_LIST[activeImgIndex]);
+  const [liked, setLiked] = useState(false);
 
   const clickHandler = (e) => {
     setActiveImg(e.target.src);
+  };
+
+  const likeHandler = () => {
+    setLiked(!liked);
   };
 
   const next = () => {
@@ -46,7 +55,12 @@ const DetailedProduct = () => {
         <div className={styles.imgContainer}>
           <div className={styles.imgSmall}>
             {IMAGE_LIST.map((data) => (
-              <img onClick={clickHandler} src={data} alt="" />
+              <img
+                className={styles.smallImg}
+                onClick={clickHandler}
+                src={data}
+                alt=""
+              />
             ))}
           </div>
 
@@ -84,6 +98,34 @@ const DetailedProduct = () => {
             <option value="fiat">AU 7</option>
             <option value="audi">AU 8</option>
           </select>
+
+          <div className={styles.addToBag}>
+            <div className={styles.buttonContainer}>
+              <ButtonGreen>ADD TO BAG</ButtonGreen>
+            </div>
+            <div className={styles.heartContainer}>
+              {!liked && (
+                <BsHeartFill onClick={likeHandler} className={styles.heart1} />
+              )}
+              {liked && (
+                <BsHeartFill onClick={likeHandler} className={styles.heart2} />
+              )}
+            </div>
+          </div>
+
+          <div className={styles.deliveryOptions}>
+            <div className={styles.fDelivery}>
+              <TbTruckDelivery className={styles.icon} />
+              <p>Free Shipping</p>
+            </div>
+
+            <div className={styles.fReturn}>
+              <BsArrowReturnLeft className={styles.icon} />
+              <p>Free Return</p>
+            </div>
+
+            <p>Ts&C apply. Learn More.</p>
+          </div>
         </div>
       </div>
     </>
