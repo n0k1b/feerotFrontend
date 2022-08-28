@@ -2,3 +2,18 @@
   height: fit-content;
   padding: 0 10.5vw;
 }
+
+.checkoutContainer {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fcfcfc;
+  padding-bottom: 50px;
+}
+
+.checkoutTitle {
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
