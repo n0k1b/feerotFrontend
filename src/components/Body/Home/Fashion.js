@@ -7,6 +7,7 @@ import odyssey from "../../../image/odyssey2.png";
 import zoro from "../../../image/zoro.png";
 import daraz from "../../../image/daraz.png";
 import yellow from "../../../image/yellow.png";
+import { Link } from "react-router-dom";
 
 const DUMMY_DATA = [
   {
@@ -100,7 +101,15 @@ const Fashion = () => {
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.title}>Fashion with 50% Cash Back</p>
+        <div className={styles.titleContainer}>
+          <p className={styles.title}>Fashion with 50% Cash Back</p>
+          <Link
+            className={styles.link}
+            to="/offers/Fashion_with_50-percent_Cash_Back"
+          >
+            <p className={styles.seeMore}>See More</p>
+          </Link>
+        </div>
 
         <div className={styles.grid}>
           {DUMMY_DATA.map((data) => (

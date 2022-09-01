@@ -12,3 +12,18 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
 }
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seeMore {
+  cursor: pointer;
+  color: #195e73;
+}
+
+.link {
+  text-decoration: none;
+}

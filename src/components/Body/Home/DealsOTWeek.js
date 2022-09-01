@@ -4,6 +4,7 @@ import StoreBigSD from "../../UI/StoreBigSD";
 import bata from "../../../image/bata.png";
 import zoro from "../../../image/zoro.png";
 import visible from "../../../image/visible.png";
+import { Link } from "react-router-dom";
 
 const DUMMY_DATA = [
   {
@@ -69,7 +70,12 @@ const DealsOTWeek = () => {
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.title}>Deals of the week</p>
+        <div className={styles.titleContainer}>
+          <p className={styles.title}>Deals of the week</p>
+          <Link className={styles.link} to="/offers/Deals_of_the_week">
+            <p className={styles.seeMore}>See More</p>
+          </Link>
+        </div>
 
         <div className={styles.grid}>
           {DUMMY_DATA.map((data) => (

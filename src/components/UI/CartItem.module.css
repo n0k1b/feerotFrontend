@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 250px;
+  height: fit-content;
+  margin: 10px;
+}
+
+.img {
+  width: 80px;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.size {
+  font-weight: bold;
+}

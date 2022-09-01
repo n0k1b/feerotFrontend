@@ -79,7 +79,12 @@ const StoresMembersLove = () => {
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.title}>Stores Our Members Love</p>
+        <div className={styles.titleContainer}>
+          <p className={styles.title}>Stores Our Members Love</p>
+          <Link className={styles.link} to="/offers/Stores_Our_Members_Love">
+            <p className={styles.seeMore}>See More</p>
+          </Link>
+        </div>
         <div className={styles.stores}>
           {DUMMY_DATA.map((data) => (
             <Link className={styles.link} to={`/${data.name}`}>
