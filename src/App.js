@@ -14,41 +14,44 @@ import ProductDetails from "./Pages/ProductDetails";
 import Checkout from "./Pages/Checkout";
 import SeeMore from "./Pages/SeeMore";
 
+import ScrollToTop from "./ScrollToTop";
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
 
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
+            <Route path="/yellow">
+              <BrandWShop />
+            </Route>
 
-          <Route path="/yellow">
-            <BrandWShop />
-          </Route>
+            <Route path="/bata">
+              <BrandShop />
+            </Route>
 
-          <Route path="/bata">
-            <BrandShop />
-          </Route>
+            <Route path="/product">
+              <ProductDetails />
+            </Route>
 
-          <Route path="/product">
-            <ProductDetails />
-          </Route>
+            <Route path="/checkout">
+              <Checkout />
+            </Route>
 
-          <Route path="/checkout">
-            <Checkout />
-          </Route>
+            <Route path="/offers/:title">
+              <SeeMore />
+            </Route>
 
-          <Route path="/offers/:title">
-            <SeeMore />
-          </Route>
-
-          <Route exact path="/offers">
-            <Redirect to="/" />
-          </Route>
-        </Switch>
+            <Route exact path="/offers">
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </div>
     </Router>
   );
