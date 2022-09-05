@@ -1,9 +1,8 @@
-import CartItem from "../../UI/CartItem";
-import styles from "./Cart.module.css";
+import CartItemDelete from "../../UI/CartItemDelete";
+import styles from "./CartComponent.module.css";
 
 import img1 from "../../../image/1.webp";
 import img2 from "../../../image/2.webp";
-import { Link } from "react-router-dom";
 
 const CART_ITEM = [
   {
@@ -22,22 +21,19 @@ const CART_ITEM = [
   },
 ];
 
-const Cart = () => {
+const CartComponent = () => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.upperSection}>
           <p className={styles.itemQuantity}>{CART_ITEM.length} ITEMS</p>
-          <Link className={styles.link} to="/cart">
-            <p className={styles.edit}>Edit</p>
-          </Link>
         </div>
 
         <hr className={styles.hr} />
 
         <div className={styles.middleSection}>
           {CART_ITEM.map((data) => (
-            <CartItem
+            <CartItemDelete
               name={data.name}
               price={data.price}
               size={data.size}
@@ -65,4 +61,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartComponent;

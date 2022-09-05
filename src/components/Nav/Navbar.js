@@ -18,6 +18,7 @@ import { BsGift } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsLightningCharge } from "react-icons/bs";
 import { BsChat } from "react-icons/bs";
+import { BsCartCheckFill } from "react-icons/bs";
 
 import { useState } from "react";
 import RStore from "./RStore";
@@ -109,6 +110,13 @@ const Navbar = () => {
           <FaLock className={styles.lockIcon} />
           <p>Sign in</p>
         </div>
+
+        <Link className={styles.link} to="/cart">
+          <div className={styles.cart}>
+            <BsCartCheckFill className={styles.cartIcon} />
+            <p className={styles.cartTitle}>Cart (8)</p>
+          </div>
+        </Link>
       </div>
 
       <div className={styles.hr}></div>

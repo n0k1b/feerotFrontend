@@ -1,5 +1,5 @@
 import styles from "./CarouselMain.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { AiFillLeftCircle } from "react-icons/ai";
 import { AiFillRightCircle } from "react-icons/ai";
@@ -19,6 +19,7 @@ function CarouselMain() {
     } else {
       setCurrentSlide(currentSlide + 1);
     }
+    console.log("working");
   };
 
   const prev = () => {
@@ -29,7 +30,9 @@ function CarouselMain() {
     }
   };
 
-  // setInterval(next, 4000);
+  // useEffect(() => {
+  //   setTimeout(next, 4000);
+  // }, []);
 
   return (
     <>

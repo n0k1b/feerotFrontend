@@ -15,6 +15,8 @@ import Checkout from "./Pages/Checkout";
 import SeeMore from "./Pages/SeeMore";
 
 import ScrollToTop from "./ScrollToTop";
+import Cart from "./Pages/Cart";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -50,8 +52,13 @@ function App() {
             <Route exact path="/offers">
               <Redirect to="/" />
             </Route>
+
+            <Route path="/cart">
+              <Cart />
+            </Route>
           </Switch>
         </ScrollToTop>
+        <Footer />
       </div>
     </Router>
   );
