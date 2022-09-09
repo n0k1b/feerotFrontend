@@ -5,16 +5,16 @@ const Offer = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.section1}>
-          <p>{props.brand} Offers</p>
-          <p>{props.type}</p>
+          <p className={styles.text}>{props.brand} Offers</p>
+          <p className={styles.text}>{props.type}</p>
         </div>
 
         <div className={styles.section2}>
           <div className={styles.text}>
-            <p>
+            <p className={styles.text}>
               <strong>{props.title}*</strong>
             </p>
-            <p>*{props.description}.</p>
+            <p className={styles.text}>*{props.description}.</p>
           </div>
           <p className={styles.discount}>{props.amount}</p>
         </div>

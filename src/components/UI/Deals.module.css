@@ -36,6 +36,10 @@
   font-weight: bold;
 }
 
+.title {
+  font-size: 20px;
+}
+
 .arrow {
   color: #686868;
 }

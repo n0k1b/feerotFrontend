@@ -112,8 +112,9 @@ const Fashion = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data) => (
+          {DUMMY_DATA.map((data, i) => (
             <BrandCard
+              key={i}
               title={data.title}
               image={data.image}
               discount={data.discount}

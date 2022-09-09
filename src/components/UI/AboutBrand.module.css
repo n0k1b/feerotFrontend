@@ -13,12 +13,20 @@
   border-bottom: 1px solid #e2e2e2;
 }
 
+.titleText {
+  font-size: 25px;
+}
+
 .title p {
   margin-left: 20px;
 }
 
-.discription {
+.description {
   font-size: 20px;
   color: #636363;
   padding: 10px 20px;
+}
+
+.descriptionText {
+  font-size: 20px;
 }

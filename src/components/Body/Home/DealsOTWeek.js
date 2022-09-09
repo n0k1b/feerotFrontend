@@ -78,8 +78,9 @@ const DealsOTWeek = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data) => (
+          {DUMMY_DATA.map((data, i) => (
             <StoreBigSD
+              key={i}
               name={data.name}
               image={data.image}
               discount={data.discount}

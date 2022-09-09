@@ -50,6 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .searchBar {
@@ -58,6 +59,27 @@
   padding: 5px 10px;
   border: 3px solid #195e73;
   outline: none;
+}
+
+.searchResult {
+  position: absolute;
+  height: 300px;
+  overflow: scroll;
+  width: 100%;
+  background-color: #ffff;
+  top: 45px;
+  z-index: 2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.searchResult::-webkit-scrollbar {
+  display: none;
+}
+
+.searchRContainer {
+  margin: 20px;
+  height: 100%;
 }
 
 .search {
@@ -163,14 +185,14 @@
 .floatingMenu {
   background-color: rgb(214, 214, 214);
   height: fit-content;
-  width: 62%;
+  width: 70vw;
   position: absolute;
   top: 70px;
-  left: 27.5vw;
+  left: 0px;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  z-index: 2;
+  z-index: 5;
 }
 
 .categoryTitles {

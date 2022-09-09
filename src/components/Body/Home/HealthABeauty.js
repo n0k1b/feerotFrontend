@@ -81,8 +81,9 @@ const HealthABeauty = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data) => (
+          {DUMMY_DATA.map((data, i) => (
             <StoreBig
+              key={i}
               name={data.name}
               image={data.image}
               discount={data.discount}

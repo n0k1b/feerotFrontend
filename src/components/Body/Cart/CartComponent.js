@@ -32,8 +32,9 @@ const CartComponent = () => {
         <hr className={styles.hr} />
 
         <div className={styles.middleSection}>
-          {CART_ITEM.map((data) => (
+          {CART_ITEM.map((data, i) => (
             <CartItemDelete
+              key={i}
               name={data.name}
               price={data.price}
               size={data.size}

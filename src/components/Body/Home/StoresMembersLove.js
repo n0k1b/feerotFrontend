@@ -86,8 +86,8 @@ const StoresMembersLove = () => {
           </Link>
         </div>
         <div className={styles.stores}>
-          {DUMMY_DATA.map((data) => (
-            <Link className={styles.link} to={`/${data.name}`}>
+          {DUMMY_DATA.map((data, i) => (
+            <Link key={i} className={styles.link} to={`/${data.name}`}>
               <StoreBig
                 image={data.image}
                 discount={data.discount}

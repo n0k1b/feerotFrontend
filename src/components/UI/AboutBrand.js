@@ -5,10 +5,10 @@ const AboutBrand = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.title}>
-          <p>About {props.brand}</p>
+          <p className={styles.titleText}>About {props.brand}</p>
         </div>
-        <div className={styles.discription}>
-          <p>{props.about}</p>
+        <div className={styles.description}>
+          <p className={styles.descriptionText}>{props.about}</p>
         </div>
       </div>
     </>

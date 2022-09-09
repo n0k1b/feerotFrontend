@@ -58,6 +58,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [showCL, setShowCL] = useState(true);
   const [showEL, setShowEL] = useState(false);
+  const [search, setSearch] = useState(false);
 
   const mouseEnter = () => {
     setMenu(true);
@@ -77,6 +78,10 @@ const Navbar = () => {
     setShowEL(false);
   };
 
+  const searchHandler = () => {
+    setSearch(!search);
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -93,6 +98,112 @@ const Navbar = () => {
           <GiHamburgerMenu className={styles.hamburger} />
           <p>Category</p>
           <FiChevronDown className={styles.downArrow} />
+
+          {menu && (
+            <div
+              className={styles.floatingMenu}
+              onMouseEnter={mouseEnter}
+              onMouseLeave={mouseLeave}
+            >
+              <div className={styles.categoryTitles}>
+                <div
+                  onClick={electronicsHide}
+                  className={
+                    showCL ? styles.active : styles.categoryTitles_clothings
+                  }
+                >
+                  <p>Clothings</p>
+                </div>
+
+                <div
+                  onClick={electronicsShow}
+                  className={
+                    showEL ? styles.active : styles.categoryTitles_electronics
+                  }
+                >
+                  <p>Electronics</p>
+                </div>
+              </div>
+
+              <div className={styles.categoryItems}>
+                {showCL && (
+                  <div className={styles.clothing_items}>
+                    <div className={styles.cItem_categories}>
+                      <div className={styles.cItem_category}>
+                        <img src={mens} alt="Men's Clothing" />
+                        <p>Men's Clothing</p>
+                      </div>
+                      <div className={styles.cItem_category}>
+                        <img src={womens} alt="Womens clothings" />
+                        <p>Womens clothings</p>
+                      </div>
+                      <div className={styles.cItem_category}>
+                        <img src={babies} alt="Babies Clothings" />
+                        <p>Babies Clothings</p>
+                      </div>
+                      <div className={styles.cItem_category}>
+                        <img src={active} alt="Active Wears" />
+                        <p>Active Wears</p>
+                      </div>
+                    </div>
+
+                    <div className={styles.cItem_rStores}>
+                      <p className={styles.cItem_rS_title}>
+                        Recommended Stores
+                      </p>
+                      {NAV_CL_DUMMY_DATA.map((data, i) => (
+                        <RStore
+                          key={i}
+                          name={data.name}
+                          offer={data.offer}
+                          btn="Shop Now"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {showEL && (
+                  <div className={styles.ectronic_items}>
+                    <div className={styles.clothing_items}>
+                      <div className={styles.cItem_categories}>
+                        <div className={styles.cItem_category}>
+                          <img src={pc} alt="Computer and Tablets" />
+                          <p>Computer and Tablets</p>
+                        </div>
+                        <div className={styles.cItem_category}>
+                          <img src={phone} alt="Cell Phones" />
+                          <p>Cell Phones</p>
+                        </div>
+                        <div className={styles.cItem_category}>
+                          <img src={wearable} alt="Wearable Tech" />
+                          <p>Wearable Tech</p>
+                        </div>
+                        <div className={styles.cItem_category}>
+                          <img src={tv} alt="Tv and Home Theatre" />
+                          <p>Tv and Home Theatre</p>
+                        </div>
+                      </div>
+
+                      <div className={styles.cItem_rStores}>
+                        <p className={styles.cItem_rS_title}>
+                          Recommended Stores
+                        </p>
+                        {NAV_EL_DUMMY_DATA.map((data, i) => (
+                          <RStore
+                            key={i}
+                            name={data.name}
+                            offer={data.offer}
+                            btn="Shop Now"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styles.searchBarSection}>
@@ -100,10 +211,20 @@ const Navbar = () => {
             className={styles.searchBar}
             type="text"
             placeholder="Search Product by Name, Category..."
+            onFocus={searchHandler}
+            onBlur={searchHandler}
           />
           <div className={styles.search}>
             <FaSearch className={styles.searchIcon} />
           </div>
+
+          {search && (
+            <div className={styles.searchResult}>
+              <div className={styles.searchRContainer}>
+                <p>Search Results...</p>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className={styles.signIn}>
@@ -120,106 +241,6 @@ const Navbar = () => {
       </div>
 
       <div className={styles.hr}></div>
-
-      {menu && (
-        <div
-          className={styles.floatingMenu}
-          onMouseEnter={mouseEnter}
-          onMouseLeave={mouseLeave}
-        >
-          <div className={styles.categoryTitles}>
-            <div
-              onClick={electronicsHide}
-              className={
-                showCL ? styles.active : styles.categoryTitles_clothings
-              }
-            >
-              <p>Clothings</p>
-            </div>
-
-            <div
-              onClick={electronicsShow}
-              className={
-                showEL ? styles.active : styles.categoryTitles_electronics
-              }
-            >
-              <p>Electronics</p>
-            </div>
-          </div>
-
-          <div className={styles.categoryItems}>
-            {showCL && (
-              <div className={styles.clothing_items}>
-                <div className={styles.cItem_categories}>
-                  <div className={styles.cItem_category}>
-                    <img src={mens} alt="Men's Clothing" />
-                    <p>Men's Clothing</p>
-                  </div>
-                  <div className={styles.cItem_category}>
-                    <img src={womens} alt="Womens clothings" />
-                    <p>Womens clothings</p>
-                  </div>
-                  <div className={styles.cItem_category}>
-                    <img src={babies} alt="Babies Clothings" />
-                    <p>Babies Clothings</p>
-                  </div>
-                  <div className={styles.cItem_category}>
-                    <img src={active} alt="Active Wears" />
-                    <p>Active Wears</p>
-                  </div>
-                </div>
-
-                <div className={styles.cItem_rStores}>
-                  <p className={styles.cItem_rS_title}>Recommended Stores</p>
-                  {NAV_CL_DUMMY_DATA.map((data) => (
-                    <RStore
-                      name={data.name}
-                      offer={data.offer}
-                      btn="Shop Now"
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {showEL && (
-              <div className={styles.ectronic_items}>
-                <div className={styles.clothing_items}>
-                  <div className={styles.cItem_categories}>
-                    <div className={styles.cItem_category}>
-                      <img src={pc} alt="Computer and Tablets" />
-                      <p>Computer and Tablets</p>
-                    </div>
-                    <div className={styles.cItem_category}>
-                      <img src={phone} alt="Cell Phones" />
-                      <p>Cell Phones</p>
-                    </div>
-                    <div className={styles.cItem_category}>
-                      <img src={wearable} alt="Wearable Tech" />
-                      <p>Wearable Tech</p>
-                    </div>
-                    <div className={styles.cItem_category}>
-                      <img src={tv} alt="Tv and Home Theatre" />
-                      <p>Tv and Home Theatre</p>
-                    </div>
-                  </div>
-
-                  <div className={styles.cItem_rStores}>
-                    <p className={styles.cItem_rS_title}>Recommended Stores</p>
-                    {NAV_EL_DUMMY_DATA.map((data) => (
-                      <RStore
-                        name={data.name}
-                        offer={data.offer}
-                        btn="Shop Now"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
       <div className={styles.section2}>
         <div className={styles.new}>
