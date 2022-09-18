@@ -1,4 +1,4 @@
-import classes from "./App.module.css";
+import styles from "./App.module.css";
 import Navbar from "./components/Nav/Navbar";
 import HomePage from "./Pages/HomePage";
 
@@ -8,7 +8,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import BrandWShop from "./Pages/BrandWShop";
+import BrandWOShop from "./Pages/BrandWOShop";
 import BrandShop from "./Pages/BrandShop";
 import ProductDetails from "./Pages/ProductDetails";
 import Checkout from "./Pages/Checkout";
@@ -22,6 +22,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { homepageContentActions } from "./redux/homepage-content-slice";
 
 import { RotatingLines } from "react-loader-spinner";
+import { navSliceActions } from "./redux/nav-slice";
+import ShopPage from "./Pages/ShopPage";
 
 let firstLoad = true;
 
@@ -41,14 +43,28 @@ function App() {
 
       const data = await response.json();
 
-      console.log(data.data);
-
       dispatch(homepageContentActions.setBanner(data.banner));
       dispatch(homepageContentActions.setSections(data.data));
 
       data.data.forEach((data) =>
         dispatch(homepageContentActions.setSectionTitles(data.section_name))
       );
+
+      //NavCategoryFetch -->
+
+      const responseNC = await fetch(
+        "https://admin.feerot.com/api/get_category"
+      );
+
+      if (!responseNC.ok) {
+        return;
+      }
+
+      const dataNC = await responseNC.json();
+
+      // console.log(dataNC.category);
+
+      dispatch(navSliceActions.setCategoryData(dataNC.category));
 
       dispatch(homepageContentActions.setIsLoading(false));
     };
@@ -57,7 +73,7 @@ function App() {
       firstLoad && homePageContentFetch().catch((err) => console.log(err));
     }
 
-    firstLoad = false;
+    // firstLoad = false;
   }, [dispatch]);
 
   const isLoading = useSelector((state) => state.homepageContent.isLoading);
@@ -67,7 +83,7 @@ function App() {
       <div className="App">
         <Navbar />
         {isLoading && (
-          <div className={classes.spinner}>
+          <div className={styles.spinner}>
             <RotatingLines
               strokeColor="#195e73"
               strokeWidth="3"
@@ -85,15 +101,19 @@ function App() {
                   <HomePage />
                 </Route>
 
-                <Route path="/yellow">
-                  <BrandWShop />
-                </Route>
+                {/* <Route path="/yellow">
+                  <BrandWOShop />
+                </Route> */}
 
                 <Route path="/bata">
                   <BrandShop />
                 </Route>
 
-                <Route path="/product">
+                <Route path="/shop/:id">
+                  <ShopPage />
+                </Route>
+
+                <Route path="/product/:id">
                   <ProductDetails />
                 </Route>
 

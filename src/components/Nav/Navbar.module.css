@@ -63,7 +63,7 @@
 
 .searchResult {
   position: absolute;
-  height: 300px;
+  height: fit-content;
   overflow: scroll;
   width: 100%;
   background-color: #ffff;
@@ -137,6 +137,7 @@
   width: 6vw;
   min-width: 100px;
   cursor: pointer;
+  position: relative;
 }
 
 .cartTitle {
@@ -148,6 +149,18 @@
   font-size: 20px;
   margin: 0px 5px;
   color: #195e73;
+}
+
+.floatingcart {
+  background-color: rgb(233, 233, 233);
+  border: 8px solid rgb(214, 214, 214);
+  position: absolute;
+  top: 70px;
+  height: fit-content;
+  width: 15vw;
+  min-width: 11vw;
+
+  z-index: 3;
 }
 
 .link {
@@ -180,77 +193,6 @@
 .icon {
   margin-right: 5px;
   color: rgb(104, 103, 103);
-}
-
-.floatingMenu {
-  background-color: rgb(214, 214, 214);
-  height: fit-content;
-  width: 70vw;
-  position: absolute;
-  top: 70px;
-  left: 0px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  z-index: 5;
-}
-
-.categoryTitles {
-  background-color: rgb(214, 214, 214);
-  height: 100%;
-  width: 19%;
-}
-
-.categoryItems {
-  background-color: rgb(233, 233, 233);
-  height: 100%;
-  width: 80%;
-}
-
-.categoryTitles_clothings,
-.categoryTitles_electronics {
-  height: 50px;
-  background-color: #ffff;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.categoryTitles_clothings:hover,
-.categoryTitles_electronics:hover {
-  background-color: rgb(233, 233, 233);
-}
-
-.categoryTitles_clothings p,
-.categoryTitles_electronics p {
-  margin-left: 10px;
-}
-
-.cItem_categories {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.cItem_category {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.cItem_category img {
-  width: 10vw;
-  border-radius: 5px;
-}
-
-.cItem_rS_title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-left: 10px;
 }
 
 .active {

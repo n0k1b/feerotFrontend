@@ -4,6 +4,7 @@ import styles from "./Cart.module.css";
 import img1 from "../../../image/1.webp";
 import img2 from "../../../image/2.webp";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CART_ITEM = [
   {
@@ -23,11 +24,14 @@ const CART_ITEM = [
 ];
 
 const Cart = () => {
+  const cartItems = useSelector((state) => state.shop.cartItem);
+  const totalPrice = useSelector((state) => state.shop.totalPrice);
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.upperSection}>
-          <p className={styles.itemQuantity}>{CART_ITEM.length} ITEMS</p>
+          <p className={styles.itemQuantity}>{cartItems.length} ITEM</p>
           <Link className={styles.link} to="/cart">
             <p className={styles.edit}>Edit</p>
           </Link>
@@ -36,12 +40,13 @@ const Cart = () => {
         <hr className={styles.hr} />
 
         <div className={styles.middleSection}>
-          {CART_ITEM.map((data) => (
+          {cartItems.map((data, i) => (
             <CartItem
+              key={i}
               name={data.name}
               price={data.price}
               size={data.size}
-              wuantity={data.quantity}
+              quantity={data.quantity}
               image={data.image}
             />
           ))}
@@ -52,12 +57,12 @@ const Cart = () => {
         <div className={styles.lowerSection}>
           <div className={styles.subTotal}>
             <p>Subtotal</p>
-            <p>$223.50</p>
+            <p>${totalPrice}</p>
           </div>
 
           <div className={styles.total}>
             <p>TOTAL TO PAY</p>
-            <p>$223.50</p>
+            <p>${totalPrice}</p>
           </div>
         </div>
       </div>

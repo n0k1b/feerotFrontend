@@ -5,10 +5,11 @@ const initialState = {
   isLoading: "",
   sections: [],
   sectionTitles: [],
+  selectedShop: [],
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const homepageContentSlice = createSlice({
+  name: "homepageContent",
   initialState,
   reducers: {
     setBanner: (state, action) => {
@@ -26,9 +27,13 @@ export const counterSlice = createSlice({
     setSectionTitles: (state, action) => {
       state.sectionTitles = [...state.sectionTitles, action.payload];
     },
+
+    setSelectedShop: (state, action) => {
+      state.selectedShop = action.payload;
+    },
   },
 });
 
-export const homepageContentActions = counterSlice.actions;
+export const homepageContentActions = homepageContentSlice.actions;
 
-export default counterSlice.reducer;
+export default homepageContentSlice.reducer;

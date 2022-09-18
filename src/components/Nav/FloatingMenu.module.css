@@ -1,0 +1,81 @@
+.floatingMenu {
+  background-color: rgb(214, 214, 214);
+  height: fit-content;
+  width: 70vw;
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  z-index: 5;
+}
+
+.categoryTitles {
+  background-color: rgb(214, 214, 214);
+  height: 100%;
+  width: 19%;
+}
+
+.categoryItems {
+  background-color: rgb(233, 233, 233);
+  height: 100%;
+  width: 80%;
+}
+
+.categoryTitles_clothings,
+.categoryTitles_electronics {
+  height: 50px;
+  background-color: #ffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.categoryTitles_clothings:hover,
+.categoryTitles_electronics:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.categoryTitles_clothings p,
+.categoryTitles_electronics p {
+  margin-left: 10px;
+}
+/*  */
+.cItem_categories {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cItem_category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cItem_category img {
+  width: 10vw;
+  border-radius: 5px;
+}
+
+.cItem_rS_title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+/*  */
+
+.active {
+  background-color: rgb(214, 214, 214);
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}

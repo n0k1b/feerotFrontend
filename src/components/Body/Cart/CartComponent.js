@@ -1,44 +1,30 @@
 import CartItemDelete from "../../UI/CartItemDelete";
 import styles from "./CartComponent.module.css";
 
-import img1 from "../../../image/1.webp";
-import img2 from "../../../image/2.webp";
-
-const CART_ITEM = [
-  {
-    name: "Reebok Club C Mid II sneakers in chalk",
-    price: "$93.50",
-    size: "WHITE AU 13",
-    quantity: 1,
-    image: img1,
-  },
-  {
-    name: "Reebok Club C 85 sneakers in white",
-    price: "$130.50",
-    size: "WHITE AU 13",
-    quantity: 1,
-    image: img2,
-  },
-];
+import { useSelector } from "react-redux";
 
 const CartComponent = () => {
+  const cartItems = useSelector((state) => state.shop.cartItem);
+  const totalPrice = useSelector((state) => state.shop.totalPrice);
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.upperSection}>
-          <p className={styles.itemQuantity}>{CART_ITEM.length} ITEMS</p>
+          <p className={styles.itemQuantity}>{cartItems.length} ITEM</p>
         </div>
 
         <hr className={styles.hr} />
 
         <div className={styles.middleSection}>
-          {CART_ITEM.map((data, i) => (
+          {cartItems.map((data, i) => (
             <CartItemDelete
               key={i}
               name={data.name}
               price={data.price}
+              color={data.color}
               size={data.size}
-              wuantity={data.quantity}
+              quantity={data.quantity}
               image={data.image}
             />
           ))}
@@ -49,12 +35,12 @@ const CartComponent = () => {
         <div className={styles.lowerSection}>
           <div className={styles.subTotal}>
             <p>Subtotal</p>
-            <p>$223.50</p>
+            <p>${totalPrice}</p>
           </div>
 
           <div className={styles.total}>
             <p>TOTAL TO PAY</p>
-            <p>$223.50</p>
+            <p>${totalPrice}</p>
           </div>
         </div>
       </div>

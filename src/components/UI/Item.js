@@ -15,7 +15,7 @@ const Item = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.imgContainer}>
-          <Link className={styles.link} to="/product">
+          <Link className={styles.link} to={`/product/${props.id}`}>
             <img src={props.image} alt="product_image" />
           </Link>
           {!liked && (
@@ -27,7 +27,7 @@ const Item = (props) => {
         </div>
 
         <p className={styles.title}>
-          <Link className={styles.link} to="/product">
+          <Link className={styles.link} to={`/product/${props.id}`}>
             {props.title}
           </Link>
         </p>

@@ -1,81 +1,21 @@
 import styles from "./StoresMembersLove.module.css";
 import StoreBig from "../../UI/StoreBig";
-import bata from "../../../image/bata.png";
-import zoro from "../../../image/zoro.png";
-import visible from "../../../image/visible.png";
-import yellow from "../../../image/yellow.png";
 import { Link } from "react-router-dom";
-
-const DUMMY_DATA = [
-  {
-    name: "bata",
-    image: bata,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "yellow",
-    image: yellow,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "visible",
-    image: visible,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "bata",
-    image: bata,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "zoro",
-    image: zoro,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "visible",
-    image: visible,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "bata",
-    image: bata,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "zoro",
-    image: zoro,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "visible",
-    image: visible,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "bata",
-    image: bata,
-    discount: "80% Discount",
-    was: "20%",
-  },
-  {
-    name: "zoro",
-    image: zoro,
-    discount: "80% Discount",
-    was: "20%",
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { homepageContentActions } from "../../../redux/homepage-content-slice";
 
 const StoresMembersLove = () => {
+  const dispatch = useDispatch();
+  const sections = useSelector((state) => state.homepageContent.sections);
+
+  const selectedSection = sections.find(
+    (sec) => sec.section_name === "Stores Our Member Love"
+  );
+
+  const clickHandler = (data) => {
+    dispatch(homepageContentActions.setSelectedShop(data));
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -86,12 +26,17 @@ const StoresMembersLove = () => {
           </Link>
         </div>
         <div className={styles.stores}>
-          {DUMMY_DATA.map((data, i) => (
-            <Link key={i} className={styles.link} to={`/${data.name}`}>
+          {selectedSection.shop.map((data, i) => (
+            <Link
+              key={i}
+              className={styles.link}
+              to={`/shop/${data.id}`}
+              onClick={() => clickHandler(data)}
+            >
               <StoreBig
-                image={data.image}
-                discount={data.discount}
-                was={data.was}
+                image={data.thumbnail_image}
+                discount={data.discount_percentage}
+                was={data.previous_discount}
               />
             </Link>
           ))}

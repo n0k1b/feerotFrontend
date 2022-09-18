@@ -93,8 +93,8 @@ const SeeMore = () => {
       <div className={styles.container}>
         <p className={styles.title}>{title}</p>
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data) => (
-            <SeeMoreCard data={data} />
+          {DUMMY_DATA.map((data, i) => (
+            <SeeMoreCard key={i} data={data} />
           ))}
         </div>
       </div>
