@@ -44,6 +44,5 @@
   position: absolute;
   inset: 0;
   transition: 1s ease;
-  border-radius: 10px;
-  /* padding-right: 20px; */
+  padding-right: 10px;
 }

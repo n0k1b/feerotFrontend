@@ -24,6 +24,7 @@ import { homepageContentActions } from "./redux/homepage-content-slice";
 import { RotatingLines } from "react-loader-spinner";
 import { navSliceActions } from "./redux/nav-slice";
 import ShopPage from "./Pages/ShopPage";
+import SignInPage from "./Pages/SignInPage";
 
 let firstLoad = true;
 
@@ -131,6 +132,10 @@ function App() {
 
                 <Route path="/cart">
                   <Cart />
+                </Route>
+
+                <Route path="/signin">
+                  <SignInPage />
                 </Route>
               </Switch>
               <Footer />

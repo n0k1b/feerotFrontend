@@ -1,0 +1,58 @@
+.shopItems,
+.productItems {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.shopItems:hover,
+.productItems:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+.siImg,
+.piImg {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.siTitle,
+.piTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(66, 66, 66);
+  width: fit-content;
+}
+
+.piPrice {
+  font-size: 18px;
+  color: #e80c5b;
+  font-weight: bold;
+}
+
+.priceWas {
+  font-size: 12px;
+  color: grey;
+  margin-left: 5px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeText {
+  cursor: pointer;
+}

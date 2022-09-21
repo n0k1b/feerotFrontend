@@ -64,6 +64,7 @@
 .searchResult {
   position: absolute;
   height: fit-content;
+  width: fit-content;
   overflow: scroll;
   width: 100%;
   background-color: #ffff;

@@ -12,7 +12,7 @@ import { BsLightningCharge } from "react-icons/bs";
 import { BsChat } from "react-icons/bs";
 import { BsCartCheckFill } from "react-icons/bs";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FloatingMenu from "./FloatingMenu";
 import { useSelector } from "react-redux";
@@ -25,7 +25,7 @@ const Navbar = () => {
   const [search, setSearch] = useState(false);
 
   const [searchText, setSearchText] = useState("");
-  const [searchData, setSearchData] = useState([]);
+  const [searchData, setSearchData] = useState([0]);
 
   const cartQuantity = useSelector((state) => state.shop.totalQuantity);
 
@@ -45,8 +45,12 @@ const Navbar = () => {
     setCart(false);
   };
 
-  const searchHandler = () => {
-    setSearch(!search);
+  const searchOpenHandler = () => {
+    setSearch(true);
+  };
+
+  const searchCloseHandler = () => {
+    setSearch(false);
   };
 
   const searchChangeHandler = (e) => {
@@ -72,11 +76,12 @@ const Navbar = () => {
     }
 
     const data = await response.json();
-
-    console.log(data);
-
     setSearchData(data);
   };
+
+  useEffect(() => {
+    searchResultFetch();
+  }, []);
 
   return (
     <>
@@ -103,8 +108,7 @@ const Navbar = () => {
             className={styles.searchBar}
             type="text"
             placeholder="Search Product by Name, Category..."
-            onFocus={searchHandler}
-            onBlur={searchHandler}
+            onFocus={searchOpenHandler}
             onChange={searchChangeHandler}
           />
           <div className={styles.search} onClick={searchResultFetch}>
@@ -114,16 +118,18 @@ const Navbar = () => {
           {search && (
             <div className={styles.searchResult}>
               <div className={styles.searchRContainer}>
-                <Search data={searchData} />
+                <Search searchClose={searchCloseHandler} data={searchData} />
               </div>
             </div>
           )}
         </div>
 
-        <div className={styles.signIn}>
-          <FaLock className={styles.lockIcon} />
-          <p>Sign in</p>
-        </div>
+        <Link className={styles.link} to="/signin">
+          <div className={styles.signIn}>
+            <FaLock className={styles.lockIcon} />
+            <p>Sign in</p>
+          </div>
+        </Link>
 
         <Link className={styles.link} to="/cart">
           <div
