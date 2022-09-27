@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
+}
+
+.imgContainer img {
+  width: 100px;
+}
+
+.brandTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.description p {
+  color: #e80c5b;
+  font-size: 14px;
+}
+
+.description span {
+  color: grey;
+  font-size: 12px;
+}
+
+.plus {
+  color: #e80c5b;
+  margin-right: 2px;
+}

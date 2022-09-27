@@ -1,0 +1,38 @@
+.container {
+  margin-bottom: 50px;
+}
+
+.titleContainer {
+  background-color: #ebebeb;
+  height: 50px;
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+}
+
+.titleContainer p {
+  margin-left: 20px;
+  color: #686868;
+  font-size: 25px;
+}
+
+.list {
+  color: #686868;
+  border: 1px solid #e2e2e2;
+}
+
+.disclaimer {
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+}
+
+.disclaimer p {
+  margin-left: 20px;
+  color: #686868;
+}

@@ -1,0 +1,24 @@
+.cItem_categories {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cItem_category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cItem_category img {
+  width: 10vw;
+  border-radius: 5px;
+}
+
+.cItem_rS_title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 10px;
+}

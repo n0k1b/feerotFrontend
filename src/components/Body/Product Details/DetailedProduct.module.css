@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.imgSmall {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.imgSmall img {
+  margin-bottom: 10px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.imgActive img {
+  width: 500px;
+  margin: 0px 20px;
+}
+
+.imgActive {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 90%;
+}
+
+.arrow {
+  font-size: 50px;
+  color: #686868;
+  cursor: pointer;
+}
+
+.textTitle {
+  font-size: 25px;
+}
+
+.price {
+  font-size: 23px;
+  font-weight: bold;
+  margin: 20px 0px;
+  color: #e80c5b;
+}
+
+.was {
+  font-size: 15px;
+  color: #6d6d6d;
+}
+
+.sizeTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sizeGuide {
+  text-decoration: underline;
+}
+
+.sizeSelector {
+  width: 100%;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+
+.addToBag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.buttonContainer {
+  width: 100%;
+}
+
+.heartContainer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  border-radius: 50px;
+  margin-left: 20px;
+}
+
+.heart1 {
+  color: #686868;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.heart2 {
+  color: red;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.deliveryOptions {
+  color: #686868;
+  border: 1px solid #eeeeee;
+  padding: 10px 20px;
+}
+
+.fDelivery,
+.fReturn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #686868;
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #686868;
+}

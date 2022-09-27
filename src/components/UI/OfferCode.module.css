@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 50px;
+  max-height: 150px;
+  background-color: #cde2f5;
+  padding: 5px 10px;
+  margin: 20px 0px;
+}

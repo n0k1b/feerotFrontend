@@ -1,0 +1,91 @@
+.container {
+  padding: 20px 40px;
+  margin-top: 20px;
+  border: 1px solid #686868;
+  border-radius: 10px;
+  max-width: 500px;
+  background-color: #ffff;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.promo,
+.voucher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #e2e2e2;
+  background-color: #ffff;
+  cursor: pointer;
+}
+
+.promo:hover,
+.voucher:hover {
+  background-color: #ebebeb;
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #e2e2e2;
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
+.promoTitle {
+  font-size: 20px;
+  margin: 20px 0px;
+  border-bottom: 1px solid #686868;
+}
+
+.pCodeTitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #686868;
+}
+
+.input {
+  width: 80%;
+  margin-right: 10px;
+  padding: 10px 20px;
+  outline: none;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ntkTitle {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.ul {
+  padding: 10px 20px;
+}
+
+/* .promoSection {
+  display: none;
+}
+
+.voucherSection {
+  display: none;
+} */
+
+.giftCardMsg {
+  margin-top: 10px;
+}

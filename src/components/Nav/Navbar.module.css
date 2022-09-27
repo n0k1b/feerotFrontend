@@ -1,0 +1,207 @@
+.container {
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+.category:hover {
+  background-color: rgb(214, 214, 214);
+  transition: 0.5s ease;
+}
+
+.categoryBackground {
+  background-color: rgb(214, 214, 214);
+}
+
+.category p {
+  font-size: 18px;
+  color: #195e73;
+}
+
+.hamburger {
+  width: 20px;
+  margin-right: 10px;
+  color: #195e73;
+}
+
+.downArrow {
+  width: 15px;
+  margin-left: 10px;
+  margin-top: 1px;
+  color: #195e73;
+}
+
+.searchBarSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.searchBar {
+  width: 466px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 3px solid #195e73;
+  outline: none;
+}
+
+.searchResult {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  overflow: scroll;
+  width: 100%;
+  background-color: #ffff;
+  top: 45px;
+  z-index: 2;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.searchResult::-webkit-scrollbar {
+  display: none;
+}
+
+.searchRContainer {
+  margin: 20px;
+  height: 100%;
+}
+
+.search {
+  background-color: #195e73;
+  height: 46px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchIcon {
+  width: 15px;
+  color: #ffff;
+}
+
+.hr {
+  background-color: rgb(201, 201, 201);
+  height: 1px;
+}
+
+.signIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100px;
+  cursor: pointer;
+}
+
+.signIn:hover,
+.cart:hover {
+  background-color: rgb(214, 214, 214);
+  transition: 0.5s ease;
+}
+
+.signIn p {
+  font-size: 18px;
+  color: #195e73;
+}
+
+.lockIcon {
+  margin: 0px 5px;
+  color: #195e73;
+}
+
+.cart {
+  color: #195e73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+  height: 100%;
+  width: 6vw;
+  min-width: 100px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cartTitle {
+  font-size: 18px;
+  color: #195e73;
+}
+
+.cartIcon {
+  font-size: 20px;
+  margin: 0px 5px;
+  color: #195e73;
+}
+
+.floatingcart {
+  background-color: rgb(233, 233, 233);
+  border: 8px solid rgb(214, 214, 214);
+  position: absolute;
+  top: 70px;
+  height: fit-content;
+  width: 15vw;
+  min-width: 11vw;
+
+  z-index: 3;
+}
+
+.link {
+  text-decoration: none;
+  height: 100%;
+}
+
+.section2 {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.section2 p {
+  color: rgb(104, 103, 103);
+}
+
+.new,
+.popular,
+.hotDeals,
+.help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 5px;
+  color: rgb(104, 103, 103);
+}
+
+.active {
+  background-color: rgb(214, 214, 214);
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}

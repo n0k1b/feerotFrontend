@@ -1,0 +1,12 @@
+.container {
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}

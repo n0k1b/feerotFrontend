@@ -1,0 +1,35 @@
+.container {
+  height: fit-content;
+  border: 1px solid #e2e2e2;
+  margin-bottom: 50px;
+}
+
+.section1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  font-size: 20px;
+  padding: 0px 20px;
+  background-color: rgb(235, 235, 235);
+  color: #636363;
+}
+
+.section2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  font-size: 20px;
+  padding: 0px 20px;
+  color: #636363;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.discount {
+  font-weight: bold;
+  font-size: 25px;
+}
