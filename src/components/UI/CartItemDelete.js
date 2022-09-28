@@ -10,9 +10,6 @@ const CartItem = (props) => {
     dispatch(shopActions.deleteCartItem(parseInt(props.id)))
   }
 
-
-const CartItem = (props) => {
-
   return (
     <>
       <div className={styles.mainContainer}>
