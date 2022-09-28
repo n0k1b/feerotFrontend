@@ -128,7 +128,11 @@ const DetailedProduct = () => {
 
           <div className={styles.textContainer}>
             <p className={styles.textTitle}>{sProduct.name}</p>
+
             <p className={styles.price}>${sProduct.discount_price} <span className={styles.was}>was ${sProduct.price}</span></p>
+
+            <p className={styles.price}>${sProduct.price}</p>
+
             <p>
               Or 4 payments of ${sProduct.price / 4} with afterpay or with
               Klarna

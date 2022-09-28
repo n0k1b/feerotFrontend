@@ -15,6 +15,7 @@ const Products = (props) => {
               title={data.name}
               price={data.discount_price}
               was={data.price}
+              price={data.price}
             />
           ))}
         </div>

@@ -9,6 +9,10 @@ const CartItem = (props) => {
   const deleteItemHandler = () => {
     dispatch(shopActions.deleteCartItem(parseInt(props.id)))
   }
+
+
+const CartItem = (props) => {
+
   return (
     <>
       <div className={styles.mainContainer}>
@@ -26,7 +30,11 @@ const CartItem = (props) => {
             </p>
           </div>
         </div>
+
         <AiFillDelete onClick={deleteItemHandler} className={styles.deleteIcon} />
+
+        <AiFillDelete className={styles.deleteIcon} />
+
       </div>
     </>
   );

@@ -2,10 +2,15 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import ButtonBlack from "../../UI/ButtonBlack";
 import styles from "./DeliveryAddress.module.css";
+
  
 const DeliveryAddress = () => {
   const cartItems = useSelector((state) => state.shop.cartItem);
   const isSignedIn = useSelector(state => state.nav.isSignedIn);
+
+
+const DeliveryAddress = () => {
+  const cartItems = useSelector((state) => state.shop.cartItem);
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -65,7 +70,10 @@ const DeliveryAddress = () => {
   const submitFormHandler = () => {
     if (cartItems.length === 0) {
       setCartEmpty(true);
+
     } else if (signedIn) {
+
+    } else {
       if (
         firstName &&
         lastName &&
@@ -113,6 +121,7 @@ const DeliveryAddress = () => {
         )}
         {cartEmpty && <p className={styles.error}>Your cart is empty!</p>}
         {successMsg && <p className={styles.success}>{successMsg}!</p>}
+<<<<<<< HEAD
         {!signedIn && <p className={styles.error}>Please sign in to continue!</p>}
 
         <p className={styles.inputTitle}>FIRST NAME :</p>
