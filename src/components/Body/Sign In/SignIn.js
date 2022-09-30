@@ -8,9 +8,6 @@ import {navSliceActions} from "../../../redux/nav-slice";
 const SignIn = () => {
   const dispatch = useDispatch();
 
-
-
-const SignIn = () => {
   const [number, setNumber] = useState();
   const [numberError, setNumberError] = useState(false);
   const [numberSection, setNumberSection] = useState(true);

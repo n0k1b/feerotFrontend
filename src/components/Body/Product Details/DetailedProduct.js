@@ -61,7 +61,7 @@ const DetailedProduct = () => {
   const getProductData = async () => {
     setIsLoading(true);
     const response = await fetch(
-      `https://admin.feerot.com/api/get_shop_product/${id}`
+      `https://admin.feerot.com/api/product_details/${id}`
     );
 
     if (!response.ok) {
@@ -70,7 +70,9 @@ const DetailedProduct = () => {
 
     const data = await response.json();
 
-    setProductData(data);
+    console.log(data.product_details, "VVI1")
+
+    setProductData(data.product_details);
 
     setIsLoading(false);
   };
@@ -79,23 +81,17 @@ const DetailedProduct = () => {
     getProductData().catch((err) => console.error(err));
   }, []);
 
-  let sProduct;
-  if (!isLoading) {
-    sProduct = productData.products.find(
-      (product) => product.id === parseInt(id)
-    );
-  }
 
   const addToCartHandler = () => {
     dispatch(
       shopActions.setCartItem({
-        id: sProduct.id,
-        name: sProduct.name,
-        price: sProduct.price,
-        color: sProduct.color,
-        size: sProduct.size,
+        id: productData.id,
+        name: productData.name,
+        price: productData.price,
+        color: productData.color,
+        size: productData.size,
         quantity: 1,
-        image: sProduct.thumbnail_image,
+        image: productData.thumbnail_image,
       })
     );
   };
@@ -106,7 +102,7 @@ const DetailedProduct = () => {
         <div className={styles.container}>
           <div className={styles.imgContainer}>
             <div className={styles.imgSmall}>
-              {sProduct.detail_image.map((data, i) => (
+              {productData.detail_image.map((data, i) => (
                 <img
                   key={i}
                   className={styles.smallImg}
@@ -118,7 +114,7 @@ const DetailedProduct = () => {
             </div>
 
             <div className={styles.imgActive}>
-              <img src={sProduct.detail_image[0]} alt="" />
+              <img src={productData.detail_image[0]} alt="" />
               <div className={styles.arrowContainer}>
                 <AiOutlineLeft onClick={prev} className={styles.arrow} />
                 <AiOutlineRight onClick={next} className={styles.arrow} />
@@ -127,21 +123,19 @@ const DetailedProduct = () => {
           </div>
 
           <div className={styles.textContainer}>
-            <p className={styles.textTitle}>{sProduct.name}</p>
+            <p className={styles.textTitle}>{productData.name}</p>
 
-            <p className={styles.price}>${sProduct.discount_price} <span className={styles.was}>was ${sProduct.price}</span></p>
-
-            <p className={styles.price}>${sProduct.price}</p>
+            <p className={styles.price}>${productData.discount_price} <span className={styles.was}>was ${productData.price}</span></p>
 
             <p>
-              Or 4 payments of ${sProduct.price / 4} with afterpay or with
+              Or 4 payments of ${productData.price / 4} with afterpay or with
               Klarna
             </p>
             <OfferCode
               offer="25% OFF EVERYTHING! IT'S AN EOFYS THING With code:"
               code="HAUL"
             />
-            <p>COLOR: {sProduct.color}</p>
+            <p>COLOR: {productData.color}</p>
 
             <div className={styles.sizeTitle}>
               <p>
@@ -151,10 +145,8 @@ const DetailedProduct = () => {
             </div>
 
             <select className={styles.sizeSelector}>
-              <option value="volvo">Please Select</option>
-              <option value="saab">AU 6</option>
-              <option value="fiat">AU 7</option>
-              <option value="audi">AU 8</option>
+              <option >Please Select</option>
+                {productData.size.map((size, i) => <option key={i} >{size}</option>)}
             </select>
 
             <div className={styles.addToBag}>

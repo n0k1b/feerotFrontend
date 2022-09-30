@@ -1,69 +1,15 @@
 import styles from "./TopPicks.module.css";
 import StoreSmall from "../../UI/StoreSmall";
-import odyssey from "../../../image/odyssey.jpg";
-import yellow from "../../../image/yellow.png";
-import lotto from "../../../image/lotto.png";
-import daraz from "../../../image/daraz.png";
 import { Link } from "react-router-dom";
-
-const DUMMY_DATA = [
-  {
-    name: "Odyssey",
-    image: odyssey,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Yellow",
-    image: yellow,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Lotto",
-    image: lotto,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Daraz",
-    image: daraz,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Odyssey",
-    image: odyssey,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Yellow",
-    image: yellow,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Lotto",
-    image: lotto,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Daraz",
-    image: daraz,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-  {
-    name: "Odyssey",
-    image: odyssey,
-    discount: "15% Cash Back",
-    was: "25%",
-  },
-];
+import { useSelector } from "react-redux";
 
 const TopPicks = () => {
+  const sections = useSelector(state => state.homepageContent.sections);
+
+  const selectedSection = sections.find(
+    (sec) => sec.section_name === "Our top picks at 15% Cash Back"
+  );
+
   return (
     <>
       <div className={styles.container}>
@@ -78,14 +24,19 @@ const TopPicks = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data, i) => (
-            <StoreSmall
+          {selectedSection.shop.map((data, i) => (
+            <Link
               key={i}
-              name={data.name}
-              image={data.image}
-              discount={data.discount}
-              was={data.was}
-            />
+              className={styles.link}
+              to={`/shop/${data.id}`}
+            >
+              <StoreSmall
+                name={data.name}
+                image={data.thumbnail_image}
+                discount={data.discount_percentage}
+                was={data.previous_discount}
+              />
+            </Link>
           ))}
         </div>
       </div>

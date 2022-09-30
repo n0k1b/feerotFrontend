@@ -1,72 +1,15 @@
 import styles from "./HealthABeauty.module.css";
 import StoreBig from "../../UI/StoreBig";
-
-import bata from "../../../image/bata.png";
-import zoro from "../../../image/zoro.png";
-import visible from "../../../image/visible.png";
 import { Link } from "react-router-dom";
-
-const DUMMY_DATA = [
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-];
+import { useSelector } from "react-redux";
 
 const HealthABeauty = () => {
+  const sections = useSelector(state => state.homepageContent.sections);
+
+  const selectedSection = sections.find(
+    (sec) => sec.section_name === "Health & Beauty with 15% Cash Back"
+  );
+
   return (
     <>
       <div className={styles.container}>
@@ -81,14 +24,19 @@ const HealthABeauty = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data, i) => (
-            <StoreBig
+          {selectedSection.shop.map((data, i) => (
+            <Link
               key={i}
-              name={data.name}
-              image={data.image}
-              discount={data.discount}
-              was={data.was}
-            />
+              className={styles.link}
+              to={`/shop/${data.id}`}
+            >
+              <StoreBig
+                name={data.name}
+                image={data.image}
+                discount={data.discount}
+                was={data.was}
+              />
+            </Link>
           ))}
         </div>
       </div>

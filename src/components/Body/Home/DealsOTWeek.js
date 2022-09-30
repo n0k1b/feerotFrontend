@@ -1,72 +1,16 @@
 import styles from "./DealsOTWeek.module.css";
 import StoreBigSD from "../../UI/StoreBigSD";
 
-import bata from "../../../image/bata.png";
-import zoro from "../../../image/zoro.png";
-import visible from "../../../image/visible.png";
 import { Link } from "react-router-dom";
-
-const DUMMY_DATA = [
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: visible,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: bata,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-  {
-    image: zoro,
-    discount: "15% Cash Back",
-    was: "20%",
-  },
-];
+import { useSelector } from "react-redux";
 
 const DealsOTWeek = () => {
+  const sections = useSelector(state => state.homepageContent.sections);
+
+  const selectedSection = sections.find(
+    (sec) => sec.section_name === "Deals of the week"
+  );
+
   return (
     <>
       <div className={styles.container}>
@@ -78,14 +22,19 @@ const DealsOTWeek = () => {
         </div>
 
         <div className={styles.grid}>
-          {DUMMY_DATA.map((data, i) => (
-            <StoreBigSD
+          {selectedSection.shop.map((data, i) => (
+             <Link
               key={i}
-              name={data.name}
-              image={data.image}
-              discount={data.discount}
-              was={data.was}
-            />
+              className={styles.link}
+              to={`/shop/${data.id}`}
+            >
+              <StoreBigSD
+                name={data.name}
+                image={data.image}
+                discount={data.discount}
+                was={data.was}
+              />
+            </Link>
           ))}
         </div>
       </div>
