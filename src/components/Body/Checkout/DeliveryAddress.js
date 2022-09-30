@@ -8,7 +8,6 @@ const DeliveryAddress = () => {
   const cartItems = useSelector((state) => state.shop.cartItem);
   const isSignedIn = useSelector(state => state.nav.isSignedIn);
 
-
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [mobile, setMobile] = useState();
@@ -118,6 +117,7 @@ const DeliveryAddress = () => {
         )}
         {cartEmpty && <p className={styles.error}>Your cart is empty!</p>}
         {successMsg && <p className={styles.success}>{successMsg}!</p>}
+
         {!signedIn && <p className={styles.error}>Please sign in to continue!</p>}
 
         <p className={styles.inputTitle}>FIRST NAME :</p>

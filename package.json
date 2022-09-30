@@ -2,6 +2,7 @@
   "name": "feerot_react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://feerot.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@reduxjs/toolkit": "^1.8.5",
@@ -44,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "eslint-auto-fix": "^1.0.4"
   }
 }
