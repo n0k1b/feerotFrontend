@@ -157,10 +157,10 @@
   border: 8px solid rgb(214, 214, 214);
   position: absolute;
   top: 70px;
+  right: 0px;
   height: fit-content;
-  width: 15vw;
+  width: 20vw;
   min-width: 11vw;
-
   z-index: 3;
 }
 

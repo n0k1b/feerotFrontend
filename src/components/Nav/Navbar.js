@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FloatingMenu from "./FloatingMenu";
 import { useSelector } from "react-redux";
-import CartComponent from "../Body/Cart/CartComponent";
+import CartComponentSmall from "../Body/Cart/CartComponentSmall";
 import Search from "./Search";
 
 const Navbar = () => {
@@ -131,7 +131,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <Link className={styles.link} to="/cart">
+        
           <div
             onMouseEnter={cartMouseEnter}
             onMouseLeave={cartMouseLeave}
@@ -142,11 +142,11 @@ const Navbar = () => {
 
             {cart && (
               <div className={styles.floatingcart}>
-                <CartComponent />
+                <CartComponentSmall />
               </div>
             )}
           </div>
-        </Link>
+       
       </div>
 
       <div className={styles.hr}></div>

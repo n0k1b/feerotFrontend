@@ -6,26 +6,45 @@
 
 .container {
   display: flex;
-  justify-content: space-between;
-  max-width: 250px;
+  justify-content: space-around;
   height: fit-content;
   margin: 10px;
 }
 
+.name {
+  font-size: 20px;
+  width: 20px;
+}
+
 .img {
   width: 80px;
+  height: 100px;
 }
 
 .text {
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .price {
   font-weight: bold;
+  color: #e80c5b;
+  margin: 0 20px;
+  font-size: 18px;
 }
 
 .size {
   font-weight: bold;
+  margin: 0 20px;
+  font-size: 18px;
+}
+
+.quantity {
+  font-weight: bold;
+  margin: 0 20px;
+  font-size: 18px;
 }
 
 .deleteIcon {

@@ -15,7 +15,7 @@ const StoreSmall = (props) => {
           <div className={styles.description}>
             <BsPlusCircleFill className={styles.plus} />
             <p>
-              {props.discount} <span>was {props.was}</span>
+              {props.discount}% <span>was {props.was}%</span>
             </p>
           </div>
         </div>

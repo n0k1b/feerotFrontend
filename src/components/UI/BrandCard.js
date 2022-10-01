@@ -1,6 +1,7 @@
 import styles from "./BrandCard.module.css";
 import { BsPlusCircleFill } from "react-icons/bs";
 import ButtonRound from "./ButtonRound";
+import { Link } from "react-router-dom";
 
 const BrandCard = (props) => {
   return (
@@ -15,13 +16,15 @@ const BrandCard = (props) => {
           <div className={styles.textContainer}>
             <BsPlusCircleFill className={styles.plus} />
             <p>
-              {props.discount} <span>was {props.was}</span>
+              {props.discount}% discount <span>was {props.was}%</span>
             </p>
           </div>
         </div>
 
         <div className={styles.btn}>
+        <Link to={`/shop/${props.id}`}>
           <ButtonRound>See Details</ButtonRound>
+        </Link>
         </div>
       </div>
     </>

@@ -49,7 +49,7 @@ function App() {
       dispatch(homepageContentActions.setSections(data.data));
 
       data.data.forEach((data) =>
-        dispatch(homepageContentActions.setSectionTitles(data.section_name))
+        dispatch(homepageContentActions.setSectionTitles(data.section_order))
       );
 
       //NavCategoryFetch -->

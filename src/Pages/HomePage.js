@@ -23,13 +23,13 @@ const HomePage = () => {
   const [haDealsOTWeek, setHasDealsOTWeek] = useState();
   const [hasFashion, setHasFashion] = useState();
 
-  const SML = sectionTitles.includes("Stores Our Member Love");
-  const topPicks = sectionTitles.includes("Our top picks at 15% Cash Back");
-  const SAndF = sectionTitles.includes("Shoes & Fashion with 30% Cash Back");
-  const HAndB = sectionTitles.includes("Health & Beauty with 15% Cash Back");
-  const popular = sectionTitles.includes("Popular");
-  const DOTW = sectionTitles.includes("Deals of the week");
-  const FashionSection = sectionTitles.includes("Fashion with 50% Cash Back");
+  const SML = sectionTitles.includes("1");
+  const topPicks = sectionTitles.includes("2");
+  const SAndF = sectionTitles.includes("3");
+  const HAndB = sectionTitles.includes("4");
+  const popular = sectionTitles.includes("5");
+  const DOTW = sectionTitles.includes("6");
+  const FashionSection = sectionTitles.includes("7");
 
   useEffect(() => {
     setHasStoreMLove(SML);

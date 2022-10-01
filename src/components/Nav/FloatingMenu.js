@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import FloatingMenuDetails from "./FloatingMenuDetails";
 
 const FloatingMenu = () => {
-  const [id, setId] = useState();
+  const [id, setId] = useState(1);
   const [showCL, setShowCL] = useState(true);
   const [showEL, setShowEL] = useState(false);
 

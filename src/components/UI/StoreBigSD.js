@@ -12,7 +12,7 @@ const StoreBigSD = (props) => {
         <div className={styles.textContainer}>
           <BsPlusCircleFill className={styles.plus} />
           <p>
-            {props.discount} <span>was {props.was}</span>
+            {props.discount}% discount <span>was {props.was}%</span>
           </p>
         </div>
         <ButtonRound>See Details</ButtonRound>

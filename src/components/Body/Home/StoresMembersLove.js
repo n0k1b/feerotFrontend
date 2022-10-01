@@ -9,7 +9,7 @@ const StoresMembersLove = () => {
   const sections = useSelector((state) => state.homepageContent.sections);
 
   const selectedSection = sections.find(
-    (sec) => sec.section_name === "Stores Our Member Love"
+    (sec) => sec.section_order === "1"
   );
 
   const clickHandler = (data) => {
@@ -20,10 +20,10 @@ const StoresMembersLove = () => {
     <>
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <p className={styles.title}>Stores Our Members Love</p>
-          <Link className={styles.link} to="/offers/Stores_Our_Members_Love">
+          <p className={styles.title}>{selectedSection.section_name}</p>
+           
             <p className={styles.seeMore}>See More</p>
-          </Link>
+          
         </div>
         <div className={styles.stores}>
           {selectedSection.shop.map((data, i) => (

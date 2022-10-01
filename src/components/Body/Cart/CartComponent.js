@@ -1,6 +1,5 @@
 import CartItemDelete from "../../UI/CartItemDelete";
 import styles from "./CartComponent.module.css";
-
 import { useSelector } from "react-redux";
 
 const CartComponent = () => {

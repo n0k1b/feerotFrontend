@@ -10,7 +10,6 @@
   box-shadow: 1px 3px 9px -3px rgba(0, 0, 0, 0.45);
   -webkit-box-shadow: 1px 3px 9px -3px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 1px 3px 9px -3px rgba(0, 0, 0, 0.45);
-  cursor: pointer;
   margin-right: 20px;
   margin-bottom: 20px;
 }
@@ -59,4 +58,7 @@
 
 .btn {
   margin-right: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
 }
