@@ -31,6 +31,8 @@ let firstLoad = true;
 function App() {
   const dispatch = useDispatch();
 
+  const isSignedIn = useSelector(state => state.nav.isSignedIn);
+
   useEffect(() => {
     const homePageContentFetch = async () => {
       dispatch(homepageContentActions.setIsLoading(true));
@@ -120,7 +122,8 @@ function App() {
                 </Route>
 
                 <Route path="/checkout">
-                  <Checkout />
+                  {isSignedIn && <Checkout />}
+                  {!isSignedIn && <Redirect to="/signin" />}
                 </Route>
 
                 <Route path="/offers/:title">

@@ -21,6 +21,10 @@ const DUMMY_DATA = [
 ];
 
 const ProductDetails = () => {
+  const data = () => {
+    
+  }
+
   return (
     <>
       <div className={styles.container}>

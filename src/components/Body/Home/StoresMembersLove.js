@@ -3,6 +3,7 @@ import StoreBig from "../../UI/StoreBig";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { homepageContentActions } from "../../../redux/homepage-content-slice";
+import { useState } from "react";
 
 const StoresMembersLove = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,14 @@ const StoresMembersLove = () => {
   const selectedSection = sections.find(
     (sec) => sec.section_order === "1"
   );
+
+  let tempShop = [];
+  for(let x = 0; x <= 4; x++) {
+    tempShop.push(selectedSection.shop[x]);
+  }
+
+  console.log(tempShop);
+
 
   const clickHandler = (data) => {
     dispatch(homepageContentActions.setSelectedShop(data));
@@ -26,7 +35,7 @@ const StoresMembersLove = () => {
           
         </div>
         <div className={styles.stores}>
-          {selectedSection.shop.map((data, i) => (
+          {tempShop.map((data, i) => (
             <Link
               key={i}
               className={styles.link}
