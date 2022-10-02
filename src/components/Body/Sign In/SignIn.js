@@ -229,7 +229,7 @@ const SignIn = () => {
           </div>
         )}
 
-        {redirect && <Redirect to="/" />} 
+        {redirect && <Redirect to="/checkout" />} 
       </div>
     </>
   );

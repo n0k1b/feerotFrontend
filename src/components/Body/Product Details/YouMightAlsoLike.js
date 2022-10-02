@@ -44,6 +44,7 @@ const YouMightAlsoLike = (props) => {
                   {props.data.you_might_also_like.map((data, i) => (
                     <Item
                       key={i}
+                      id={data.id}
                       image={data.thumbnail_image}
                       title={data.name}
                       price={data.discount_price}
