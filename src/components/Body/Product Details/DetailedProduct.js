@@ -19,7 +19,7 @@ import { shopActions } from "../../../redux/shop-slice";
 
 const IMAGE_LIST = [img1, img2, img3, img4];
 
-const DetailedProduct = () => {
+const DetailedProduct = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   const id = params.id;
@@ -71,6 +71,8 @@ const DetailedProduct = () => {
     const data = await response.json();
 
     console.log(data.product_details, "VVI1")
+
+    props.dataHandler(data);
 
     setProductData(data.product_details);
 

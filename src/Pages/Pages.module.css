@@ -48,3 +48,9 @@
   display: flex;
   justify-content: center;
 }
+
+.PDcontainer {
+  height: fit-content;
+  padding: 0 10.5vw;
+  margin-bottom: 50px;
+}

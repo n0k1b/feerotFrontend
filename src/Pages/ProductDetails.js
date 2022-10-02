@@ -4,6 +4,8 @@ import DetailsCardList from "../components/UI/DetailsCardList";
 import DetailsCard from "../components/UI/DetailsCard";
 import YouMightAlsoLike from "../components/Body/Product Details/YouMightAlsoLike";
 import RecentlyViewed from "../components/Body/Product Details/RecentlyViewed";
+import { useState } from "react";
+import StoresMembersLove from "../components/Body/Home/StoresMembersLove"
 
 const DUMMY_DATA = [
   {
@@ -21,14 +23,16 @@ const DUMMY_DATA = [
 ];
 
 const ProductDetails = () => {
-  const data = () => {
-    
+  const [data, setData] = useState();
+
+  const dataHandler = (dataInput) => {
+    setData(dataInput);
   }
 
   return (
     <>
-      <div className={styles.container}>
-        <DetailedProduct />
+      <div className={styles.PDcontainer}>
+        <DetailedProduct dataHandler={dataHandler} />
         <DetailsCardList title="Product Details" description={DUMMY_DATA[0]} />
         <DetailsCard
           title="Brand"
@@ -43,8 +47,10 @@ const ProductDetails = () => {
           description="Breathable mesh and leather upper Lining: 100% Textile, Sole: 100% Other materials, Upper: 100% Real leather."
         />
 
-        <YouMightAlsoLike />
-        <RecentlyViewed />
+        <YouMightAlsoLike data={data} />
+        {/*<RecentlyViewed />*/}
+
+        <StoresMembersLove />
       </div>
     </>
   );

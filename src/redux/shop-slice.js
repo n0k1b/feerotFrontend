@@ -57,6 +57,7 @@ export const shopSlice = createSlice({
       const selectedItem = state.cartItem.find(item => item.id === action.payload);
       state.cartItem = state.cartItem.filter(item => item.id !== selectedItem.id);
       state.totalPrice = state.totalPrice - (selectedItem.price * selectedItem.quantity);
+      state.totalQuantity = state.totalQuantity - selectedItem.quantity;
     }
   },
 });

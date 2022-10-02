@@ -35,21 +35,22 @@ const DUMMY_DATA = [
   },
 ];
 
-const YouMightAlsoLike = () => {
+const YouMightAlsoLike = (props) => {
   return (
     <>
       <div className={styles.container}>
         <p className={styles.title}>YOU MIGHT ALSO LIKE</p>
-        <div className={styles.products}>
-          {DUMMY_DATA.map((data, i) => (
-            <Item
-              key={i}
-              image={data.image}
-              title={data.title}
-              price={data.price}
-            />
-          ))}
-        </div>
+        {props.data && <div className={styles.products}>
+                  {props.data.you_might_also_like.map((data, i) => (
+                    <Item
+                      key={i}
+                      image={data.thumbnail_image}
+                      title={data.name}
+                      price={data.discount_price}
+                      was={data.price}
+                    />
+                  ))}
+                </div>}
       </div>
     </>
   );
