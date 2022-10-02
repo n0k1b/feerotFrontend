@@ -54,20 +54,20 @@ const DeliveryAddress = () => {
       body: JSON.stringify(fData),
     });
 
+    console.log("LENGTH");
+
     if (!response.ok) {
       return;
     }
 
     const data = await response.json();
-
+    console.log(data);
     setSuccessMsg(data.message);
   };
 
   const submitFormHandler = () => {
     if (cartItems.length === 0) {
       setCartEmpty(true);
-
-    } else if (signedIn) {
 
     } else {
       if (
