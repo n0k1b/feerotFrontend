@@ -29,11 +29,12 @@ export const shopSlice = createSlice({
         const existingCart = state.cartItem.filter(
           (item) => item.id !== itemExists.id
         );
-        itemExists.quantity++;
+        itemExists.quantity = itemExists.quantity + newItem.quantity;
 
         state.cartItem = [...existingCart, itemExists];
         state.totalQuantity++;
-        state.totalPrice = state.totalPrice + parseInt(itemExists.price);
+        state.totalPrice =
+          state.totalPrice + parseInt(itemExists.price * newItem.quantity);
       }
     },
 
@@ -54,11 +55,16 @@ export const shopSlice = createSlice({
     },
 
     deleteCartItem: (state, action) => {
-      const selectedItem = state.cartItem.find(item => item.id === action.payload);
-      state.cartItem = state.cartItem.filter(item => item.id !== selectedItem.id);
-      state.totalPrice = state.totalPrice - (selectedItem.price * selectedItem.quantity);
+      const selectedItem = state.cartItem.find(
+        (item) => item.id === action.payload
+      );
+      state.cartItem = state.cartItem.filter(
+        (item) => item.id !== selectedItem.id
+      );
+      state.totalPrice =
+        state.totalPrice - selectedItem.price * selectedItem.quantity;
       state.totalQuantity = state.totalQuantity - selectedItem.quantity;
-    }
+    },
   },
 });
 

@@ -3,10 +3,9 @@ import { useSelector } from "react-redux";
 import ButtonBlack from "../../UI/ButtonBlack";
 import styles from "./DeliveryAddress.module.css";
 
-
 const DeliveryAddress = () => {
   const cartItems = useSelector((state) => state.shop.cartItem);
-  const isSignedIn = useSelector(state => state.nav.isSignedIn);
+  const isSignedIn = useSelector((state) => state.nav.isSignedIn);
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -19,7 +18,7 @@ const DeliveryAddress = () => {
   const [cartEmpty, setCartEmpty] = useState();
   const [successMsg, setSuccessMsg] = useState();
 
-  const [signedIn, setSignedIn] = useState(isSignedIn); 
+  const [signedIn, setSignedIn] = useState(isSignedIn);
 
   const fNameChangeHandler = (e) => {
     setFirstName(e.target.value);
@@ -68,7 +67,6 @@ const DeliveryAddress = () => {
   const submitFormHandler = () => {
     if (cartItems.length === 0) {
       setCartEmpty(true);
-
     } else {
       if (
         firstName &&
@@ -96,7 +94,6 @@ const DeliveryAddress = () => {
         postFormData(formData);
       } else {
         setFormNotOk(true);
-        console.log("wrong");
       }
     }
   };
@@ -118,7 +115,9 @@ const DeliveryAddress = () => {
         {cartEmpty && <p className={styles.error}>Your cart is empty!</p>}
         {successMsg && <p className={styles.success}>{successMsg}!</p>}
 
-        {!signedIn && <p className={styles.error}>Please sign in to continue!</p>}
+        {!signedIn && (
+          <p className={styles.error}>Please sign in to continue!</p>
+        )}
 
         <p className={styles.inputTitle}>FIRST NAME :</p>
         <input

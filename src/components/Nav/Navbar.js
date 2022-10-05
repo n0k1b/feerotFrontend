@@ -27,7 +27,7 @@ const Navbar = () => {
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([0]);
 
-  const cartQuantity = useSelector((state) => state.shop.totalQuantity);
+  const cartItem = useSelector((state) => state.shop.cartItem);
 
   const mouseEnter = () => {
     setMenu(true);
@@ -131,22 +131,20 @@ const Navbar = () => {
           </div>
         </Link>
 
-        
-          <div
-            onMouseEnter={cartMouseEnter}
-            onMouseLeave={cartMouseLeave}
-            className={styles.cart}
-          >
-            <BsCartCheckFill className={styles.cartIcon} />
-            <p className={styles.cartTitle}>Cart ({cartQuantity})</p>
+        <div
+          onMouseEnter={cartMouseEnter}
+          onMouseLeave={cartMouseLeave}
+          className={styles.cart}
+        >
+          <BsCartCheckFill className={styles.cartIcon} />
+          <p className={styles.cartTitle}>Cart ({cartItem.length})</p>
 
-            {cart && (
-              <div className={styles.floatingcart}>
-                <CartComponentSmall />
-              </div>
-            )}
-          </div>
-       
+          {cart && (
+            <div className={styles.floatingcart}>
+              <CartComponentSmall />
+            </div>
+          )}
+        </div>
       </div>
 
       <div className={styles.hr}></div>

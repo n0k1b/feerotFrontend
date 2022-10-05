@@ -16,6 +16,7 @@ import ButtonGreen from "../../UI/ButtonGreen";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { shopActions } from "../../../redux/shop-slice";
+import Counter from "../../UI/Counter";
 
 const IMAGE_LIST = [img1, img2, img3, img4];
 
@@ -29,6 +30,7 @@ const DetailedProduct = (props) => {
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [activeImg, setActiveImg] = useState(IMAGE_LIST[activeImgIndex]);
   const [liked, setLiked] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const clickHandler = (e) => {
     setActiveImg(e.target.src);
@@ -70,7 +72,7 @@ const DetailedProduct = (props) => {
 
     const data = await response.json();
 
-    console.log(data.product_details, "VVI1")
+    console.log(data.product_details, "VVI1");
 
     props.dataHandler(data);
 
@@ -83,19 +85,22 @@ const DetailedProduct = (props) => {
     getProductData().catch((err) => console.error(err));
   }, []);
 
-
   const addToCartHandler = () => {
     dispatch(
       shopActions.setCartItem({
         id: productData.id,
         name: productData.name,
-        price: productData.price,
+        price: productData.discount_price,
         color: productData.color,
         size: productData.size,
-        quantity: 1,
+        quantity: quantity,
         image: productData.thumbnail_image,
       })
     );
+  };
+
+  const quantityHandler = (number) => {
+    setQuantity(number);
   };
 
   return (
@@ -127,7 +132,10 @@ const DetailedProduct = (props) => {
           <div className={styles.textContainer}>
             <p className={styles.textTitle}>{productData.name}</p>
 
-            <p className={styles.price}>${productData.discount_price} <span className={styles.was}>was ${productData.price}</span></p>
+            <p className={styles.price}>
+              ${productData.discount_price}{" "}
+              <span className={styles.was}>was ${productData.price}</span>
+            </p>
 
             <p>
               Or 4 payments of ${productData.price / 4} with afterpay or with
@@ -147,8 +155,10 @@ const DetailedProduct = (props) => {
             </div>
 
             <select className={styles.sizeSelector}>
-              <option >Please Select</option>
-                {productData.size.map((size, i) => <option key={i} >{size}</option>)}
+              <option>Please Select</option>
+              {productData.size.map((size, i) => (
+                <option key={i}>{size}</option>
+              ))}
             </select>
 
             <div className={styles.addToBag}>
@@ -158,6 +168,9 @@ const DetailedProduct = (props) => {
               >
                 <ButtonGreen>ADD TO BAG</ButtonGreen>
               </div>
+
+              <Counter numberHandler={quantityHandler} />
+
               <div className={styles.heartContainer}>
                 {!liked && (
                   <BsHeartFill
