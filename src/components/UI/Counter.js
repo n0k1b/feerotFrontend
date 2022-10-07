@@ -25,12 +25,14 @@ const Counter = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.plus} onClick={increment}>
-          +
-        </div>
-        <div className={styles.number}>{number}</div>
         <div className={styles.minus} onClick={decrement}>
           -
+        </div>
+
+        <div className={styles.number}>{number}</div>
+
+        <div className={styles.plus} onClick={increment}>
+          +
         </div>
       </div>
     </>

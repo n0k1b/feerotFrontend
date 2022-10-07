@@ -53,6 +53,12 @@ const Navbar = () => {
     setSearch(false);
   };
 
+  useEffect(() => {
+    if (!searchText) {
+      searchCloseHandler();
+    }
+  }, [searchText]);
+
   const searchChangeHandler = (e) => {
     setSearchText(e.target.value);
   };
@@ -109,6 +115,7 @@ const Navbar = () => {
             type="text"
             placeholder="Search Product by Name, Category..."
             onFocus={searchOpenHandler}
+            onBlur={searchBlurHandler}
             onChange={searchChangeHandler}
           />
           <div className={styles.search} onClick={searchResultFetch}>

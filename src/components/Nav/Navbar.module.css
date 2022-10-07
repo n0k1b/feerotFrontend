@@ -63,7 +63,7 @@
 
 .searchResult {
   position: absolute;
-  height: fit-content;
+  height: 500px;
   width: fit-content;
   overflow: scroll;
   width: 100%;
