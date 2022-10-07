@@ -13,7 +13,6 @@
   justify-content: center;
   align-items: center;
   padding: 0px 10px;
-  /* background-color: yellow; */
 }
 
 .plus {
@@ -23,11 +22,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #e2e2e2;
+  border-left: 1px solid #e2e2e2;
   padding: 0px 10px;
   font-size: 22px;
   cursor: pointer;
-  /* background-color: rebeccapurple; */
 }
 
 .minus {
@@ -37,9 +35,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
   padding: 0px 10px;
   font-size: 30px;
   cursor: pointer;
-  /* background-color: red; */
 }
