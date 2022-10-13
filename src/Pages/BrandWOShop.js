@@ -26,8 +26,6 @@ const BrandWOShop = (props) => {
 
     const data = await response.json();
 
-    console.log(data, "OMG")
-
     setShopData(data.shop_details);
     setProductsData(data.products);
 

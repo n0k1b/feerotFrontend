@@ -1,11 +1,6 @@
 import styles from "./FloatingMenuDetails.module.css";
 import RStore from "./RStore";
-import mens from "../../image/mens.png";
-import womens from "../../image/womens.png";
-import babies from "../../image/babies.png";
-import active from "../../image/active.png";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 
 const NAV_CL_DUMMY_DATA = [
   {
@@ -24,7 +19,6 @@ const NAV_CL_DUMMY_DATA = [
 
 const FloatingMenuDetails = (props) => {
   const menuData = useSelector((state) => state.nav.categoryData);
-  console.log(menuData)
   const selectedCategory = menuData.find((menu) => menu.id === props.id);
 
   return (

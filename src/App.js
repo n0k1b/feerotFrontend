@@ -8,7 +8,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import BrandWOShop from "./Pages/BrandWOShop";
+// import BrandWOShop from "./Pages/BrandWOShop";
 import BrandShop from "./Pages/BrandShop";
 import ProductDetails from "./Pages/ProductDetails";
 import Checkout from "./Pages/Checkout";
@@ -31,7 +31,7 @@ let firstLoad = true;
 function App() {
   const dispatch = useDispatch();
 
-  const isSignedIn = useSelector(state => state.nav.isSignedIn);
+  const isSignedIn = useSelector((state) => state.nav.isSignedIn);
 
   useEffect(() => {
     const homePageContentFetch = async () => {
@@ -45,7 +45,7 @@ function App() {
       }
 
       const data = await response.json();
-      console.log(data)
+      console.log(data);
 
       dispatch(homepageContentActions.setBanner(data.banner));
       dispatch(homepageContentActions.setSections(data.data));
@@ -126,7 +126,7 @@ function App() {
                   {!isSignedIn && <Redirect to="/signin" />}
                 </Route>
 
-                <Route path="/offers/:title">
+                <Route path="/detailed_section/:id">
                   <SeeMore />
                 </Route>
 
