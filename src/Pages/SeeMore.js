@@ -1,99 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "./SeeMore.module.css";
 
-import bata from "../image/bata.png";
-import md from "../image/md.png";
-import odyssey from "../image/odyssey.jpg";
-import yellow from "../image/yellow.png";
 import SeeMoreStore from "../components/UI/SeeMoreStore";
 import { useEffect, useState } from "react";
-
-const DUMMY_DATA = [
-  {
-    title: "Bata",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: bata,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Perricone MD",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: md,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Odyssey",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: odyssey,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Yellow",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: yellow,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Bata",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: bata,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Perricone MD",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: md,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Odyssey",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: odyssey,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Yellow",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: yellow,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Bata",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: bata,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Perricone MD",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: md,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Odyssey",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: odyssey,
-    discount: 80,
-    was: 20,
-  },
-  {
-    title: "Yellow",
-    description: "Get 80% OFF at Bata Shoes.",
-    image: yellow,
-    discount: 80,
-    was: 20,
-  },
-];
+import { RotatingLines } from "react-loader-spinner";
 
 const SeeMore = () => {
   const params = useParams();
@@ -127,6 +37,18 @@ const SeeMore = () => {
 
   return (
     <>
+      {isLoading && (
+        <div className={styles.spinner}>
+          <RotatingLines
+            strokeColor="#195e73"
+            strokeWidth="3"
+            animationDuration="0.75"
+            width="70"
+            visible={true}
+          />
+        </div>
+      )}
+
       {!isLoading && (
         <div className={styles.container}>
           <p className={styles.title}>{seeMoreData.section_name}</p>

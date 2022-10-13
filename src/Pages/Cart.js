@@ -13,7 +13,9 @@ const Cart = () => {
       <div className={styles.cartTable}>
         <CartComponent />
         <Link to="/checkout">
-          <ButtonGreen>Proceed To Checkout</ButtonGreen>
+          <div className={styles.btn}>
+            <ButtonGreen>Proceed To Checkout</ButtonGreen>
+          </div>
         </Link>
       </div>
     </div>
