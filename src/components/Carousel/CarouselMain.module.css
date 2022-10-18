@@ -1,5 +1,5 @@
 .carouselContainer {
-  height: 300px;
+  height: 310px;
   margin-top: 50px;
   margin-bottom: 80px;
   display: flex;
@@ -15,27 +15,31 @@
 }
 
 .btnL {
-  font-size: 50px;
+  font-size: 30px;
   cursor: pointer;
-  color: #154352;
-  background-color: #fff;
+  color: #fff;
+  background-color: rgb(66, 66, 66);
   border-radius: 50px;
   position: absolute;
-  top: 40%;
+  top: 43%;
   left: 20px;
   z-index: 1;
+  -webkit-box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
 }
 
 .btnR {
-  font-size: 50px;
+  font-size: 30px;
   cursor: pointer;
-  color: #154352;
-  background-color: #fff;
+  color: #fff;
+  background-color: rgb(66, 66, 66);
   border-radius: 50px;
   position: absolute;
-  top: 40%;
+  top: 43%;
   right: 20px;
   z-index: 1;
+  -webkit-box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
 }
 
 .img {
@@ -44,5 +48,7 @@
   position: absolute;
   inset: 0;
   transition: 1s ease;
-  padding-right: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 4px 16px -1px rgba(0, 0, 0, 0.39);
 }

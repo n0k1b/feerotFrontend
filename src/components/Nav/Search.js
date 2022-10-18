@@ -10,9 +10,9 @@ const Search = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.close}>
-          <p className={styles.closeText} onClick={close}>
+          {/* <p className={styles.closeText} onClick={close}>
             Close
-          </p>
+          </p> */}
         </div>
         {props.data.length && (
           <>

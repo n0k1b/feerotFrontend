@@ -61,7 +61,7 @@ const Navbar = () => {
 
   const searchBlurHandler = () => {
     setSearch(false);
-  }
+  };
 
   const searchChangeHandler = (e) => {
     setSearchText(e.target.value);

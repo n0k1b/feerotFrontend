@@ -38,7 +38,9 @@ function CarouselMain() {
         <div className={styles.carouselItems}>
           {banner.map((data, i) => (
             <img
-              style={{ transform: `translateX(${100 * (i - currentSlide)}%)` }}
+              style={{
+                transform: `translateX(${102 * (i - currentSlide)}%)`,
+              }}
               key={i}
               id={data.id}
               className={styles.img}
