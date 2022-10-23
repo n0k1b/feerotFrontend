@@ -5,9 +5,8 @@
 
 .title {
   font-size: 25px;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #747474;
+  margin: 20px 0px;
+  font-family: "Stag";
 }
 
 .grid {
