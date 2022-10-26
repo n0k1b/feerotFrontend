@@ -32,7 +32,13 @@ const Item = (props) => {
           </Link>
         </p>
 
-        <p className={styles.price}>${props.price} <span className={styles.was}>was ${props.was}</span></p>
+        <p className={styles.price}>
+          {/* ${props.price} <span className={styles.was}>was ${props.was}</span> */}
+          ${props.price}{" "}
+          <span className={styles.was}>
+            <s>${props.was}</s>
+          </span>
+        </p>
       </div>
     </>
   );

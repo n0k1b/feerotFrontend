@@ -133,8 +133,12 @@ const DetailedProduct = (props) => {
             <p className={styles.textTitle}>{productData.name}</p>
 
             <p className={styles.price}>
-              ${productData.discount_price}{" "}
-              <span className={styles.was}>was ${productData.price}</span>
+              {/* ${productData.discount_price}
+              <span className={styles.was}>was ${productData.price}</span> */}
+              ${productData.discount_price}
+              <span className={styles.was}>
+                <s>${productData.price}</s>
+              </span>
             </p>
 
             <p>

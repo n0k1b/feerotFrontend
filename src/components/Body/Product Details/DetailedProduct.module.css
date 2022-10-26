@@ -56,12 +56,13 @@
   font-size: 23px;
   font-weight: bold;
   margin: 20px 0px;
-  color: #e80c5b;
+  /* color: #e80c5b; */
 }
 
 .was {
   font-size: 15px;
   color: #6d6d6d;
+  margin-left: 5px;
 }
 
 .sizeTitle {
