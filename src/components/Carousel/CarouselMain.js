@@ -33,21 +33,23 @@ function CarouselMain() {
 
   return (
     <>
-      <div className={styles.carouselContainer}>
+      <div className={styles.container}>
         <AiFillLeftCircle className={styles.btnL} onClick={prev} />
-        <div className={styles.carouselItems}>
-          {banner.map((data, i) => (
-            <img
-              style={{
-                transform: `translateX(${102 * (i - currentSlide)}%)`,
-              }}
-              key={i}
-              id={data.id}
-              className={styles.img}
-              src={data.image}
-              alt=""
-            />
-          ))}
+        <div className={styles.carouselContainer}>
+          <div className={styles.carouselItems}>
+            {banner.map((data, i) => (
+              <img
+                style={{
+                  transform: `translateX(${102 * (i - currentSlide)}%)`,
+                }}
+                key={i}
+                id={data.id}
+                className={styles.img}
+                src={data.image}
+                alt=""
+              />
+            ))}
+          </div>
         </div>
         <AiFillRightCircle className={styles.btnR} onClick={next} />
       </div>

@@ -84,7 +84,6 @@ const Navbar = () => {
     if (!response.ok) {
       return;
     }
-
     const data = await response.json();
     setSearchData(data);
   };

@@ -1,10 +1,5 @@
 import styles from "./DetailedProduct.module.css";
 
-import img1 from "../../../image/1.webp";
-import img2 from "../../../image/2.webp";
-import img3 from "../../../image/3.webp";
-import img4 from "../../../image/4.webp";
-
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { BsHeartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -18,8 +13,6 @@ import { useDispatch } from "react-redux";
 import { shopActions } from "../../../redux/shop-slice";
 import Counter from "../../UI/Counter";
 
-const IMAGE_LIST = [img1, img2, img3, img4];
-
 const DetailedProduct = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -28,7 +21,7 @@ const DetailedProduct = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [productData, setProductData] = useState([]);
   const [activeImgIndex, setActiveImgIndex] = useState(0);
-  const [activeImg, setActiveImg] = useState(IMAGE_LIST[activeImgIndex]);
+  const [activeImg, setActiveImg] = useState();
   const [liked, setLiked] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
@@ -38,26 +31,6 @@ const DetailedProduct = (props) => {
 
   const likeHandler = () => {
     setLiked(!liked);
-  };
-
-  const next = () => {
-    if (activeImgIndex === IMAGE_LIST.length - 1) {
-      setActiveImgIndex(0);
-      setActiveImg(IMAGE_LIST[activeImgIndex]);
-    } else {
-      setActiveImgIndex(activeImgIndex + 1);
-      setActiveImg(IMAGE_LIST[activeImgIndex]);
-    }
-  };
-
-  const prev = () => {
-    if (activeImgIndex === 0) {
-      setActiveImgIndex(IMAGE_LIST.length - 1);
-      setActiveImg(IMAGE_LIST[activeImgIndex]);
-    } else {
-      setActiveImgIndex(activeImgIndex - 1);
-      setActiveImg(IMAGE_LIST[activeImgIndex]);
-    }
   };
 
   const getProductData = async () => {
@@ -72,11 +45,11 @@ const DetailedProduct = (props) => {
 
     const data = await response.json();
 
-    console.log(data.product_details, "VVI1");
+    console.log(data.product_details);
 
     props.dataHandler(data);
 
-    setProductData(data.product_details);
+    // setProductData(data.product_details);
 
     setIsLoading(false);
   };
@@ -103,6 +76,30 @@ const DetailedProduct = (props) => {
     setQuantity(number);
   };
 
+  const next = () => {
+    if (!isLoading) {
+      if (activeImgIndex === productData.detail_image.length - 1) {
+        setActiveImgIndex(0);
+        setActiveImg(productData.detail_image[activeImgIndex]);
+      } else {
+        setActiveImgIndex(activeImgIndex + 1);
+        setActiveImg(productData.detail_image[activeImgIndex]);
+      }
+    }
+  };
+
+  const prev = () => {
+    if (!isLoading) {
+      if (activeImgIndex === 0) {
+        setActiveImgIndex(productData.detail_image.length - 1);
+        setActiveImg(productData.detail_image[activeImgIndex]);
+      } else {
+        setActiveImgIndex(activeImgIndex - 1);
+        setActiveImg(productData.detail_image[activeImgIndex]);
+      }
+    }
+  };
+
   return (
     <>
       {!isLoading && (
@@ -121,7 +118,10 @@ const DetailedProduct = (props) => {
             </div>
 
             <div className={styles.imgActive}>
-              <img src={productData.detail_image[0]} alt="" />
+              <img
+                src={!activeImg ? productData.detail_image[0] : activeImg}
+                alt=""
+              />
               <div className={styles.arrowContainer}>
                 <AiOutlineLeft onClick={prev} className={styles.arrow} />
                 <AiOutlineRight onClick={next} className={styles.arrow} />
