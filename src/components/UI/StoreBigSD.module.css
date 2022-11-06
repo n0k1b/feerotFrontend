@@ -1,7 +1,7 @@
 .container {
   width: 200px;
-  margin: 5px;
   cursor: pointer;
+  margin-right: 10px;
   margin-bottom: 20px;
 }
 

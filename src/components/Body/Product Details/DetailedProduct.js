@@ -45,11 +45,11 @@ const DetailedProduct = (props) => {
 
     const data = await response.json();
 
-    console.log(data.product_details);
+    // console.log(data.product_details);
 
     props.dataHandler(data);
 
-    // setProductData(data.product_details);
+    setProductData(data.product_details);
 
     setIsLoading(false);
   };

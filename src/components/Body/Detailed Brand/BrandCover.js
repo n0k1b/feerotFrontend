@@ -19,7 +19,9 @@ const BrandCover = (props) => {
         </div>
 
         <div className={styles.discountText}>
-          <p>{props.discount}</p>
+          <p>
+            {props.discount} {props.brand}
+          </p>
           <ButtonRed>{props.btn}</ButtonRed>
         </div>
       </div>

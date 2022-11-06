@@ -58,7 +58,7 @@ const BrandWOShop = (props) => {
               brand={shopData.shop_name}
               cover={shopData.banner_image}
               logo={shopData.thumbnail_image}
-              discount="Get up to 8% of your purchase back when you shop with Yellow"
+              discount="Get up to 8% of your purchase back when you shop with"
               btn="Get Cash Back Now"
             />
             <Products productsData={productsData} />

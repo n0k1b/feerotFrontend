@@ -22,6 +22,7 @@
 .seeMore {
   cursor: pointer;
   color: #195e73;
+  margin-right: -6vw;
 }
 
 .link {
