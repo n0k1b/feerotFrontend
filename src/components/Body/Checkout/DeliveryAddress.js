@@ -100,10 +100,10 @@ const DeliveryAddress = () => {
 
   return (
     <>
-      <div className={styles.emailContainer}>
+      {/* <div className={styles.emailContainer}>
         <p className={styles.title}>EMAIL ADDRESS</p>
         <p className={styles.email}>xyz@gmail.com</p>
-      </div>
+      </div> */}
 
       <div className={styles.deliveryAddress}>
         <p className={styles.title}>DELIVERY ADDRESS</p>

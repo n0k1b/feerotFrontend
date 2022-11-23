@@ -20,7 +20,7 @@ const PromoCode = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>PROMO / STUDENT CODE OR VOUCHERS</p>
+      <p className={styles.title}>PROMO CODE</p>
 
       <div className={styles.PrVoSection}>
         <div className={styles.buttonContainer}>
@@ -29,21 +29,21 @@ const PromoCode = () => {
             onClick={promoClickHandler}
           >
             <BsTag className={styles.tag} />
-            <p>PROMO / STUDENT CODE</p>
+            <p>PROMO CODE</p>
           </div>
-          <div
+          {/* <div
             className={voucher ? styles.active : styles.voucher}
             onClick={voucherClickHandler}
           >
             <AiOutlineGift className={styles.gift} />
             <p>VOUCHER</p>
-          </div>
+          </div> */}
         </div>
 
         {promo && (
           <div className={styles.promoSection}>
-            <p className={styles.promoTitle}>ADD A PROMO/STUDENT CODE</p>
-            <p className={styles.pCodeTitle}>PROMO/STUDENT CODE</p>
+            <p className={styles.promoTitle}>ADD A PROMO CODE</p>
+            <p className={styles.pCodeTitle}>PROMO CODE</p>
 
             <div className={styles.inputContainer}>
               <input className={styles.input} type="text" />
@@ -65,7 +65,7 @@ const PromoCode = () => {
           </div>
         )}
 
-        {voucher && (
+        {/* {voucher && (
           <div className={styles.voucherSection}>
             <p className={styles.promoTitle}>ADD A VOUCHER</p>
             <p className={styles.pCodeTitle}>16-DIGIT VOUCHER CODE</p>
@@ -82,7 +82,7 @@ const PromoCode = () => {
               </p>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

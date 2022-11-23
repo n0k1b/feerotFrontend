@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./Cart.module.css";
-
 import CartComponent from "../components/Body/Cart/CartComponent";
-import ButtonGreen from "../components/UI/ButtonGreen";
-import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -12,11 +9,6 @@ const Cart = () => {
 
       <div className={styles.cartTable}>
         <CartComponent />
-        <Link to="/checkout">
-          <div className={styles.btn}>
-            <ButtonGreen>Proceed To Checkout</ButtonGreen>
-          </div>
-        </Link>
       </div>
     </div>
   );
