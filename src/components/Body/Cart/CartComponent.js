@@ -17,7 +17,7 @@ const CartComponent = () => {
           <p>Cart is Empty</p>
         </div>
       )}
-      {cartItems.length != 0 && (
+      {cartItems.length !== 0 && (
         <div className={styles.container}>
           <div className={styles.upperSection}>
             <p className={styles.itemQuantity}>{cartItems.length} ITEM</p>

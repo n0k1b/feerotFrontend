@@ -1,12 +1,12 @@
 import Cart from "../components/Body/Checkout/Cart";
 import DeliveryAddress from "../components/Body/Checkout/DeliveryAddress";
-import DeliveryOption from "../components/Body/Checkout/DeliveryOption";
 import Payment from "../components/Body/Checkout/Payment";
 import PromoCode from "../components/Body/Checkout/PromoCode";
 import ButtonGreen from "../components/UI/ButtonGreen";
 import styles from "./Pages.module.css";
 
 const Checkout = () => {
+  const formSubmitHandler = () => {};
   return (
     <div className={styles.checkoutContainer}>
       <div>
@@ -16,9 +16,11 @@ const Checkout = () => {
           <div className={styles.content}>
             <PromoCode />
             <DeliveryAddress />
-            <DeliveryOption />
+            {/* <DeliveryOption /> */}
             <Payment />
-            <ButtonGreen>PLACE ORDER</ButtonGreen>
+            <div onClick={formSubmitHandler}>
+              <ButtonGreen>PLACE ORDER</ButtonGreen>
+            </div>
           </div>
 
           <div className={styles.cart}>

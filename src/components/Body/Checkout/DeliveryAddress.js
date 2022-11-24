@@ -53,8 +53,6 @@ const DeliveryAddress = () => {
       body: JSON.stringify(fData),
     });
 
-    console.log("LENGTH");
-
     if (!response.ok) {
       return;
     }
