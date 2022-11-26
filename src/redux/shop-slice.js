@@ -20,9 +20,10 @@ export const shopSlice = createSlice({
       const itemExists = state.cartItem.find((item) => item.id === newItem.id);
 
       if (!itemExists) {
-        state.cartItem = [...state.cartItem, action.payload];
+        state.cartItem = [...state.cartItem, newItem];
         state.totalQuantity++;
-        state.totalPrice = state.totalPrice + parseInt(action.payload.price);
+        state.totalPrice =
+          state.totalPrice + parseInt(newItem.price * newItem.quantity);
       }
 
       if (itemExists) {
