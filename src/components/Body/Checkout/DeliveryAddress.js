@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import ButtonBlack from "../../UI/ButtonBlack";
+import ButtonGreen from "../../UI/ButtonGreen";
 import styles from "./DeliveryAddress.module.css";
+import Payment from "./Payment";
 
 const DeliveryAddress = () => {
   const cartItems = useSelector((state) => state.shop.cartItem);
@@ -13,6 +15,7 @@ const DeliveryAddress = () => {
   const [address, setAddress] = useState();
   const [city, setCity] = useState();
   const [postCode, setPostCode] = useState();
+  const [paymentOption, setPaymentOption] = useState();
 
   const [formNotOk, setFormNotOk] = useState();
   const [cartEmpty, setCartEmpty] = useState();
@@ -42,6 +45,10 @@ const DeliveryAddress = () => {
 
   const postCodeChangeHandler = (e) => {
     setPostCode(parseInt(e.target.value));
+  };
+
+  const paymentOptionHandler = (value) => {
+    setPaymentOption(value);
   };
 
   const postFormData = async (fData) => {
@@ -75,7 +82,8 @@ const DeliveryAddress = () => {
         postCode &&
         cartItems.length !== 0 &&
         typeof mobile === "number" &&
-        typeof postCode === "number"
+        typeof postCode === "number" &&
+        paymentOption
       ) {
         setFormNotOk(false);
 
@@ -87,8 +95,10 @@ const DeliveryAddress = () => {
           city,
           post_code: postCode,
           cart_items: [...cartItems],
+          payment_option: paymentOption,
         };
 
+        console.log(formData, "formData");
         postFormData(formData);
       } else {
         setFormNotOk(true);
@@ -159,9 +169,13 @@ const DeliveryAddress = () => {
           type="text"
         />
 
-        <div onClick={submitFormHandler}>
+        {/* <div onClick={submitFormHandler}>
           <ButtonBlack>DELIVER TO THIS ADDRESS</ButtonBlack>
-        </div>
+        </div> */}
+      </div>
+      <Payment paymentOptionHandler={paymentOptionHandler} />
+      <div onClick={submitFormHandler}>
+        <ButtonGreen>PLACE ORDER</ButtonGreen>
       </div>
     </>
   );

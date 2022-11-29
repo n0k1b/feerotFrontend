@@ -6,7 +6,6 @@ import ButtonGreen from "../components/UI/ButtonGreen";
 import styles from "./Pages.module.css";
 
 const Checkout = () => {
-  const formSubmitHandler = () => {};
   return (
     <div className={styles.checkoutContainer}>
       <div>
@@ -17,10 +16,10 @@ const Checkout = () => {
             <PromoCode />
             <DeliveryAddress />
             {/* <DeliveryOption /> */}
-            <Payment />
-            <div onClick={formSubmitHandler}>
+            {/* <Payment /> */}
+            {/* <div>
               <ButtonGreen>PLACE ORDER</ButtonGreen>
-            </div>
+            </div> */}
           </div>
 
           <div className={styles.cart}>
