@@ -34,7 +34,7 @@ const Item = (props) => {
 
         <p className={styles.price}>
           {/* ${props.price} <span className={styles.was}>was ${props.was}</span> */}
-          ${props.price}{" "}
+          ${props.price}
           <span className={styles.was}>
             <s>${props.was}</s>
           </span>

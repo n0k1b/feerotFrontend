@@ -20,6 +20,7 @@ const NAV_CL_DUMMY_DATA = [
 const FloatingMenuDetails = (props) => {
   const menuData = useSelector((state) => state.nav.categoryData);
   const selectedCategory = menuData.find((menu) => menu.id === props.id);
+  console.log(selectedCategory);
 
   return (
     <>

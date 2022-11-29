@@ -5,20 +5,8 @@ import FloatingMenuDetails from "./FloatingMenuDetails";
 
 const FloatingMenu = () => {
   const [id, setId] = useState(1);
-  const [showCL, setShowCL] = useState(true);
-  const [showEL, setShowEL] = useState(false);
 
   const navCategorydata = useSelector((state) => state.nav.categoryData);
-
-  const electronicsShow = () => {
-    setShowCL(false);
-    setShowEL(true);
-  };
-
-  const electronicsHide = () => {
-    setShowCL(true);
-    setShowEL(false);
-  };
 
   const clickHandler = (id) => {
     setId(id);

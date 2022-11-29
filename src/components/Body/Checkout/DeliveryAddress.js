@@ -1,3 +1,4 @@
+import { Alert, Snackbar } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import ButtonBlack from "../../UI/ButtonBlack";
@@ -106,6 +107,14 @@ const DeliveryAddress = () => {
     }
   };
 
+  const cartEmptyClose = () => {
+    setCartEmpty(false);
+  };
+
+  const formNotOkClose = () => {
+    setFormNotOk(false);
+  };
+
   return (
     <>
       {/* <div className={styles.emailContainer}>
@@ -117,15 +126,47 @@ const DeliveryAddress = () => {
         <p className={styles.title}>DELIVERY ADDRESS</p>
         <p className={styles.secondaryTitle}>ADD ADDRESS :</p>
 
-        {formNotOk && (
-          <p className={styles.error}>Please enter your data correctly!</p>
-        )}
-        {cartEmpty && <p className={styles.error}>Your cart is empty!</p>}
-        {successMsg && <p className={styles.success}>{successMsg}!</p>}
+        <Snackbar
+          open={formNotOk}
+          autoHideDuration={6000}
+          onClose={formNotOkClose}
+        >
+          <Alert
+            severity="warning"
+            sx={{ width: "100%" }}
+            onClose={formNotOkClose}
+          >
+            Please enter your data correctly!
+          </Alert>
+        </Snackbar>
 
-        {!signedIn && (
-          <p className={styles.error}>Please sign in to continue!</p>
-        )}
+        <Snackbar
+          open={cartEmpty}
+          autoHideDuration={6000}
+          onClose={cartEmptyClose}
+        >
+          <Alert
+            severity="warning"
+            sx={{ width: "100%" }}
+            onClose={cartEmptyClose}
+          >
+            Your cart is empty!
+          </Alert>
+        </Snackbar>
+
+        <Snackbar
+          open={successMsg}
+          autoHideDuration={6000}
+          onClose={cartEmptyClose}
+        >
+          <Alert
+            severity="success"
+            sx={{ width: "100%" }}
+            onClose={cartEmptyClose}
+          >
+            {successMsg}!
+          </Alert>
+        </Snackbar>
 
         <p className={styles.inputTitle}>FIRST NAME :</p>
         <input
