@@ -1,6 +1,6 @@
 import styles from "./FloatingMenuDetails.module.css";
 import RStore from "./RStore";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const NAV_CL_DUMMY_DATA = [
   {
@@ -22,6 +22,18 @@ const FloatingMenuDetails = (props) => {
   const selectedCategory = menuData.find((menu) => menu.id === props.id);
   console.log(selectedCategory);
 
+  ////
+  const sections = useSelector((state) => state.homepageContent.sections);
+
+  const selectedSection = sections.find((sec) => sec.section_order === "1");
+
+  let tempShop = [];
+  for (let x = 0; x <= 4; x++) {
+    tempShop.push(selectedSection.shop[x]);
+  }
+
+  ////
+
   return (
     <>
       <div className={styles.clothing_items}>
@@ -37,11 +49,12 @@ const FloatingMenuDetails = (props) => {
 
         <div className={styles.cItem_rStores}>
           <p className={styles.cItem_rS_title}>Recommended Stores</p>
-          {NAV_CL_DUMMY_DATA.map((data, i) => (
+          {tempShop.map((data) => (
             <RStore
-              key={i}
+              key={data.id}
+              id={data.id}
               name={data.name}
-              offer={data.offer}
+              offer={data.discount_percentage}
               btn="Shop Now"
             />
           ))}
