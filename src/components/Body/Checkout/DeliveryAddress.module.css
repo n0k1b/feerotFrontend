@@ -11,6 +11,7 @@
 
 .title {
   font-size: 25px;
+  margin-bottom: 20px;
 }
 
 .email {
@@ -26,12 +27,6 @@
   border-radius: 10px;
   padding: 20px 40px;
   background-color: #ffff;
-}
-
-.secondaryTitle {
-  margin: 20px 0px;
-  font-size: 20px;
-  color: #686868;
 }
 
 .inputTitle {

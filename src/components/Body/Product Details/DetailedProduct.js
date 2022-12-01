@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { shopActions } from "../../../redux/shop-slice";
 import Counter from "../../UI/Counter";
+import { Alert, Snackbar } from "@mui/material";
 
 const DetailedProduct = (props) => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const DetailedProduct = (props) => {
   const [activeImg, setActiveImg] = useState();
   const [liked, setLiked] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [addToBag, setAddToBag] = useState();
 
   const clickHandler = (e) => {
     setActiveImg(e.target.src);
@@ -70,6 +72,11 @@ const DetailedProduct = (props) => {
         image: productData.thumbnail_image,
       })
     );
+    setAddToBag(true);
+  };
+
+  const addToBagClose = () => {
+    setAddToBag(false);
   };
 
   const quantityHandler = (number) => {
@@ -207,6 +214,15 @@ const DetailedProduct = (props) => {
           </div>
         </div>
       )}
+      <Snackbar open={addToBag} autoHideDuration={6000} onClose={addToBagClose}>
+        <Alert
+          severity="success"
+          sx={{ width: "100%" }}
+          onClose={addToBagClose}
+        >
+          Added to cart!
+        </Alert>
+      </Snackbar>
     </>
   );
 };

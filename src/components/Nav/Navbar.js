@@ -28,6 +28,7 @@ const Navbar = () => {
   const [searchData, setSearchData] = useState([0]);
 
   const cartItem = useSelector((state) => state.shop.cartItem);
+  const isSignedIn = useSelector((state) => state.nav.isSignedIn);
 
   const mouseEnter = () => {
     setMenu(true);
@@ -134,12 +135,14 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link className={styles.link} to="/signin">
-          <div className={styles.signIn}>
-            <FaLock className={styles.lockIcon} />
-            <p>Sign in</p>
-          </div>
-        </Link>
+        {!isSignedIn && (
+          <Link className={styles.link} to="/signin">
+            <div className={styles.signIn}>
+              <FaLock className={styles.lockIcon} />
+              <p>Sign in</p>
+            </div>
+          </Link>
+        )}
 
         <div
           onMouseEnter={cartMouseEnter}

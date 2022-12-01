@@ -1,7 +1,6 @@
 import { Alert, Snackbar } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import ButtonBlack from "../../UI/ButtonBlack";
 import ButtonGreen from "../../UI/ButtonGreen";
 import styles from "./DeliveryAddress.module.css";
 import Payment from "./Payment";
@@ -21,8 +20,6 @@ const DeliveryAddress = () => {
   const [formNotOk, setFormNotOk] = useState();
   const [cartEmpty, setCartEmpty] = useState();
   const [successMsg, setSuccessMsg] = useState();
-
-  const [signedIn, setSignedIn] = useState(isSignedIn);
 
   const fNameChangeHandler = (e) => {
     setFirstName(e.target.value);
@@ -117,14 +114,8 @@ const DeliveryAddress = () => {
 
   return (
     <>
-      {/* <div className={styles.emailContainer}>
-        <p className={styles.title}>EMAIL ADDRESS</p>
-        <p className={styles.email}>xyz@gmail.com</p>
-      </div> */}
-
       <div className={styles.deliveryAddress}>
         <p className={styles.title}>DELIVERY ADDRESS</p>
-        <p className={styles.secondaryTitle}>ADD ADDRESS :</p>
 
         <Snackbar
           open={formNotOk}

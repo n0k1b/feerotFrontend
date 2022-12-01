@@ -3,7 +3,7 @@ import ButtonBlack from "../../UI/ButtonBlack";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {navSliceActions} from "../../../redux/nav-slice";
+import { navSliceActions } from "../../../redux/nav-slice";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -229,7 +229,7 @@ const SignIn = () => {
           </div>
         )}
 
-        {redirect && <Redirect to="/checkout" />} 
+        {redirect && <Redirect to="/checkout" />}
       </div>
     </>
   );
