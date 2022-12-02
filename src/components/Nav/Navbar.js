@@ -6,29 +6,35 @@ import { FaSearch } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiChevronDown } from "react-icons/fi";
-import { BsGift } from "react-icons/bs";
+import { BsGift, BsCaretDownFill } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsLightningCharge } from "react-icons/bs";
 import { BsChat } from "react-icons/bs";
 import { BsCartCheckFill } from "react-icons/bs";
+import { FaUserAlt } from "react-icons/fa";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FloatingMenu from "./FloatingMenu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartComponentSmall from "../Body/Cart/CartComponentSmall";
 import Search from "./Search";
+import { navSliceActions } from "../../redux/nav-slice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   const [menu, setMenu] = useState(false);
   const [cart, setCart] = useState(false);
   const [search, setSearch] = useState(false);
+  const [userDropdown, setUserDropdown] = useState();
 
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([0]);
 
   const cartItem = useSelector((state) => state.shop.cartItem);
   const isSignedIn = useSelector((state) => state.nav.isSignedIn);
+  const userData = useSelector((state) => state.nav.userData);
 
   const mouseEnter = () => {
     setMenu(true);
@@ -52,6 +58,19 @@ const Navbar = () => {
 
   const searchCloseHandler = () => {
     setSearch(false);
+  };
+
+  const userOpenHandler = () => {
+    setUserDropdown(true);
+  };
+
+  const userCloseHandler = () => {
+    setUserDropdown(false);
+  };
+
+  const logoutHandler = () => {
+    dispatch(navSliceActions.setIsSignedIn(false));
+    dispatch(navSliceActions.setUserData([]));
   };
 
   useEffect(() => {
@@ -142,6 +161,26 @@ const Navbar = () => {
               <p>Sign in</p>
             </div>
           </Link>
+        )}
+
+        {isSignedIn && (
+          <div
+            className={styles.user}
+            onMouseEnter={userOpenHandler}
+            onMouseLeave={userCloseHandler}
+          >
+            <FaUserAlt className={styles.userIcon} />
+            <p>{userData.user.name}</p>
+            <BsCaretDownFill className={styles.userIcon} />
+
+            {userDropdown && (
+              <div className={styles.userDd}>
+                <div className={styles.containerUser}>
+                  <p onClick={logoutHandler}>Log Out</p>
+                </div>
+              </div>
+            )}
+          </div>
         )}
 
         <div

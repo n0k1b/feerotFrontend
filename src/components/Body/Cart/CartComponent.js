@@ -1,14 +1,20 @@
 import CartItemDelete from "../../UI/CartItemDelete";
 import styles from "./CartComponent.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonGreen from "../../UI//ButtonGreen";
 import { Link } from "react-router-dom";
+import { navSliceActions } from "../../../redux/nav-slice";
 
 const CartComponent = () => {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.shop.cartItem);
   const totalPrice = useSelector((state) => state.shop.totalPrice);
 
   console.log(cartItems);
+
+  const btnClickHandler = () => {
+    dispatch(navSliceActions.setWillRedirect(true));
+  };
 
   return (
     <>
@@ -55,7 +61,7 @@ const CartComponent = () => {
           </div>
 
           <Link to="/checkout">
-            <div className={styles.btn}>
+            <div className={styles.btn} onClick={btnClickHandler}>
               <ButtonGreen>Proceed To Checkout</ButtonGreen>
             </div>
           </Link>

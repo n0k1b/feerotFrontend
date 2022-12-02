@@ -2,11 +2,13 @@ import styles from "./SignIn.module.css";
 import ButtonBlack from "../../UI/ButtonBlack";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { navSliceActions } from "../../../redux/nav-slice";
 
 const SignIn = () => {
   const dispatch = useDispatch();
+
+  const willRedirect = useSelector((state) => state.nav.willRedirect);
 
   const [number, setNumber] = useState();
   const [numberError, setNumberError] = useState(false);
@@ -94,7 +96,7 @@ const SignIn = () => {
 
         console.log(data);
 
-        console.log(data.user_status);
+        dispatch(navSliceActions.setUserData(data));
 
         setUserStatus(data);
         setOtpSection(false);
@@ -154,6 +156,7 @@ const SignIn = () => {
         if (data.status_code === 200) {
           setRedirect(true);
           dispatch(navSliceActions.setIsSignedIn(true));
+          dispatch(navSliceActions.setUserData(data));
         }
       };
 
@@ -229,7 +232,8 @@ const SignIn = () => {
           </div>
         )}
 
-        {redirect && <Redirect to="/checkout" />}
+        {redirect && willRedirect && <Redirect to="/checkout" />}
+        {redirect && !willRedirect && <Redirect to="/" />}
       </div>
     </>
   );

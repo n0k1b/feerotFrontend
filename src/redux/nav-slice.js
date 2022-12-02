@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   categoryData: [],
-  isSignedIn : false,
+  isSignedIn: false,
+  willRedirect: false,
+  userData: [],
 };
 
 export const NavSlice = createSlice({
@@ -13,9 +15,17 @@ export const NavSlice = createSlice({
       state.categoryData = action.payload;
     },
 
-    setIsSignedIn : (state, action) => {
+    setIsSignedIn: (state, action) => {
       state.isSignedIn = action.payload;
-    }
+    },
+
+    setWillRedirect: (state, action) => {
+      state.willRedirect = action.payload;
+    },
+
+    setUserData: (state, action) => {
+      state.userData = action.payload;
+    },
   },
 });
 
