@@ -56,7 +56,7 @@ const SeeMore = () => {
             {seeMoreData.data.map((data, i) => (
               <Link key={i} className={styles.link} to={`/shop/${data.id}`}>
                 <SeeMoreStore
-                  image={data.banner_image}
+                  image={data.thumbnail_image}
                   discount={data.discount_percentage}
                   was={data.previous_discount}
                 />

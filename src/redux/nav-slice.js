@@ -5,6 +5,7 @@ const initialState = {
   isSignedIn: false,
   willRedirect: false,
   userData: [],
+  navSection: [],
 };
 
 export const NavSlice = createSlice({
@@ -25,6 +26,10 @@ export const NavSlice = createSlice({
 
     setUserData: (state, action) => {
       state.userData = action.payload;
+    },
+
+    setNavSection: (state, action) => {
+      state.navSection = action.payload;
     },
   },
 });

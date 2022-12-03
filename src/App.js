@@ -25,6 +25,8 @@ import { RotatingLines } from "react-loader-spinner";
 import { navSliceActions } from "./redux/nav-slice";
 import ShopPage from "./Pages/ShopPage";
 import SignInPage from "./Pages/SignInPage";
+import NavSection from "./Pages/NavSection";
+import NavSectionHelp from "./Pages/NavSectionHelp";
 
 let firstLoad = true;
 
@@ -71,13 +73,25 @@ function App() {
       dispatch(navSliceActions.setCategoryData(dataNC.category));
 
       dispatch(homepageContentActions.setIsLoading(false));
+
+      const responseNS = await fetch(
+        "https://admin.feerot.com/api/get_nav_bar_section"
+      );
+
+      if (!responseNS.ok) {
+        return;
+      }
+
+      const dataNS = await responseNS.json();
+
+      console.log(dataNS.nav_bar_section);
+
+      dispatch(navSliceActions.setNavSection(dataNS.nav_bar_section));
     };
 
     {
       firstLoad && homePageContentFetch().catch((err) => console.log(err));
     }
-
-    // firstLoad = false;
   }, [dispatch]);
 
   const isLoading = useSelector((state) => state.homepageContent.isLoading);
@@ -140,6 +154,14 @@ function App() {
 
                 <Route path="/signin">
                   <SignInPage />
+                </Route>
+
+                <Route path="/trending/Help">
+                  <NavSectionHelp />
+                </Route>
+
+                <Route path="/trending/:id">
+                  <NavSection />
                 </Route>
               </Switch>
               <Footer />

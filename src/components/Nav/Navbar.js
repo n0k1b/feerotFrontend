@@ -35,6 +35,7 @@ const Navbar = () => {
   const cartItem = useSelector((state) => state.shop.cartItem);
   const isSignedIn = useSelector((state) => state.nav.isSignedIn);
   const userData = useSelector((state) => state.nav.userData);
+  const navSection = useSelector((state) => state.nav.navSection);
 
   const mouseEnter = () => {
     setMenu(true);
@@ -114,116 +115,141 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={styles.container}>
-        <Link to="/">
-          <img className={styles.logo} src={logo} alt="logo" />
-        </Link>
+      <div>
+        <div className={styles.container}>
+          <Link to="/">
+            <img className={styles.logo} src={logo} alt="logo" />
+          </Link>
 
-        <div
-          onMouseEnter={mouseEnter}
-          onMouseLeave={mouseLeave}
-          onClick={mouseEnter}
-          className={styles.category}
-        >
-          <GiHamburgerMenu className={styles.hamburger} />
-          <p>Category</p>
-          <FiChevronDown className={styles.downArrow} />
+          <div
+            onMouseEnter={mouseEnter}
+            onMouseLeave={mouseLeave}
+            onClick={mouseEnter}
+            className={styles.category}
+          >
+            <GiHamburgerMenu className={styles.hamburger} />
+            <p>Category</p>
+            <FiChevronDown className={styles.downArrow} />
 
-          {menu && <FloatingMenu />}
-        </div>
-
-        <div className={styles.searchBarSection}>
-          <input
-            className={styles.searchBar}
-            type="text"
-            placeholder="Search Product by Name, Category..."
-            onFocus={searchOpenHandler}
-            onBlur={searchBlurHandler}
-            onChange={searchChangeHandler}
-          />
-          <div className={styles.search} onClick={searchResultFetch}>
-            <FaSearch className={styles.searchIcon} />
+            {menu && <FloatingMenu />}
           </div>
 
-          {search && (
-            <div className={styles.searchResult}>
-              <div className={styles.searchRContainer}>
-                <Search searchClose={searchCloseHandler} data={searchData} />
-              </div>
+          <div className={styles.searchBarSection}>
+            <input
+              className={styles.searchBar}
+              type="text"
+              placeholder="Search Product by Name, Category..."
+              onFocus={searchOpenHandler}
+              onBlur={searchBlurHandler}
+              onChange={searchChangeHandler}
+            />
+            <div className={styles.search} onClick={searchResultFetch}>
+              <FaSearch className={styles.searchIcon} />
             </div>
-          )}
-        </div>
 
-        {!isSignedIn && (
-          <Link className={styles.link} to="/signin">
-            <div className={styles.signIn}>
-              <FaLock className={styles.lockIcon} />
-              <p>Sign in</p>
-            </div>
-          </Link>
-        )}
-
-        {isSignedIn && (
-          <div
-            className={styles.user}
-            onMouseEnter={userOpenHandler}
-            onMouseLeave={userCloseHandler}
-          >
-            <FaUserAlt className={styles.userIcon} />
-            <p>{userData.user.name}</p>
-            <BsCaretDownFill className={styles.userIcon} />
-
-            {userDropdown && (
-              <div className={styles.userDd}>
-                <div className={styles.containerUser}>
-                  <p onClick={logoutHandler}>Log Out</p>
+            {search && (
+              <div className={styles.searchResult}>
+                <div className={styles.searchRContainer}>
+                  <Search searchClose={searchCloseHandler} data={searchData} />
                 </div>
               </div>
             )}
           </div>
-        )}
 
-        <div
-          onMouseEnter={cartMouseEnter}
-          onMouseLeave={cartMouseLeave}
-          className={styles.cart}
-        >
-          <BsCartCheckFill className={styles.cartIcon} />
-          <p className={styles.cartTitle}>Cart ({cartItem.length})</p>
+          {!isSignedIn && (
+            <Link className={styles.link} to="/signin">
+              <div className={styles.signIn}>
+                <FaLock className={styles.lockIcon} />
+                <p>Sign in</p>
+              </div>
+            </Link>
+          )}
 
-          {cart && (
-            <div className={styles.floatingcart}>
-              <CartComponentSmall />
+          {isSignedIn && (
+            <div
+              className={styles.user}
+              onMouseEnter={userOpenHandler}
+              onMouseLeave={userCloseHandler}
+            >
+              <FaUserAlt className={styles.userIcon} />
+              <p>{userData.user.name}</p>
+              <BsCaretDownFill className={styles.userIcon} />
+
+              {userDropdown && (
+                <div className={styles.userDd}>
+                  <div className={styles.containerUser}>
+                    <p onClick={logoutHandler}>Log Out</p>
+                  </div>
+                </div>
+              )}
             </div>
           )}
+
+          <div
+            onMouseEnter={cartMouseEnter}
+            onMouseLeave={cartMouseLeave}
+            className={styles.cart}
+          >
+            <BsCartCheckFill className={styles.cartIcon} />
+            <p className={styles.cartTitle}>Cart ({cartItem.length})</p>
+
+            {cart && (
+              <div className={styles.floatingcart}>
+                <CartComponentSmall />
+              </div>
+            )}
+          </div>
         </div>
+
+        <div className={styles.hr}></div>
+
+        <div className={styles.section2}>
+          {navSection.map((data) => (
+            <Link
+              key={data.id}
+              className={styles.link}
+              to={`/trending/${data.name}`}
+            >
+              <div className={styles.new}>
+                {data.id === 1 && <BsGift className={styles.icon} />}
+                {data.id === 2 && <AiOutlineHeart className={styles.icon} />}
+                {data.id === 3 && <BsLightningCharge className={styles.icon} />}
+                <p>{data.name}</p>
+              </div>
+            </Link>
+          ))}
+
+          {/* <Link className={styles.link} to={`nav_sec/${navSection[0].name}`}>
+            <div className={styles.new}>
+              <BsGift className={styles.icon} />
+              <p>{navSection[0].name}</p>
+            </div>
+          </Link>
+
+          <Link className={styles.link} to={`nav_sec/${navSection[1].name}`}>
+            <div className={styles.popular}>
+              <AiOutlineHeart className={styles.icon} />
+              <p>{navSection[1].name}</p>
+            </div>
+          </Link>
+
+          <Link className={styles.link} to={`nav_sec/${navSection[2].name}`}>
+            <div className={styles.hotDeals}>
+              <BsLightningCharge className={styles.icon} />
+              <p>{navSection[2].name}</p>
+            </div>
+          </Link> */}
+
+          <Link className={styles.link} to="/trending/Help">
+            <div className={styles.help}>
+              <BsChat className={styles.icon} />
+              <p>Help</p>
+            </div>
+          </Link>
+        </div>
+
+        <div className={styles.hr}></div>
       </div>
-
-      <div className={styles.hr}></div>
-
-      <div className={styles.section2}>
-        <div className={styles.new}>
-          <BsGift className={styles.icon} />
-          <p>New</p>
-        </div>
-
-        <div className={styles.popular}>
-          <AiOutlineHeart className={styles.icon} />
-          <p>Popular</p>
-        </div>
-
-        <div className={styles.hotDeals}>
-          <BsLightningCharge className={styles.icon} />
-          <p>Hot Deals</p>
-        </div>
-
-        <div className={styles.help}>
-          <BsChat className={styles.icon} />
-          <p>Help</p>
-        </div>
-      </div>
-
-      <div className={styles.hr}></div>
     </>
   );
 };
