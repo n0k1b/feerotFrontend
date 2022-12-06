@@ -14,7 +14,11 @@ const NavSection = () => {
       <div className={styles.title}>{param.id}</div>
       <div className={styles.grid}>
         {navSecData.shop.map((data, i) => (
-          <Link key={i} className={styles.link} to={`/shop/${data.id}`}>
+          <Link
+            key={i}
+            className={styles.link}
+            to={`/shop/${data.retailer_id}`}
+          >
             <SeeMoreStore
               image={`https://admin.feerot.com/public/${data.retailer.thumbnail_image}`}
               discount={data.retailer.discount_percentage}
