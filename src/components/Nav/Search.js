@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import styles from "./Search.module.css";
 
 const Search = (props) => {
-  const close = () => {
+  const close = (id) => {
+    // <Redirect to={`/product/${id}`} />;
     props.searchClose();
   };
 
@@ -32,7 +33,7 @@ const Search = (props) => {
                     className={styles.link}
                     to={`/product/${data.id}`}
                   >
-                    <div className={styles.productItems}>
+                    <div className={styles.productItems} onClick={close}>
                       <img
                         className={styles.piImg}
                         src={data.thumbnail_image}
