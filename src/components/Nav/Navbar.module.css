@@ -91,7 +91,7 @@
 
 .search {
   background-color: #195e73;
-  height: 45px;
+  height: 42px;
   width: 35px;
   display: flex;
   justify-content: center;
@@ -99,7 +99,7 @@
   cursor: pointer;
   border-radius: 0px 10px 10px 0px;
   box-shadow: -2px 2px 2px 1px rgba(25, 94, 115, 0.24);
-  -webkit-box-shadow: -2px 2px 2px 1px rgba(25, 94, 115, 0.24);
+  -webkit-box-shadow: -3px 4px 2px 1px rgba(25, 94, 115, 0.24);
   -moz-box-shadow: -2px 2px 2px 1px rgba(25, 94, 115, 0.24);
 }
 

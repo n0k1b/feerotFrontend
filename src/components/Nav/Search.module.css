@@ -55,4 +55,6 @@
 
 .closeText {
   cursor: pointer;
+  color: #195e73;
+  font-size: 12px;
 }

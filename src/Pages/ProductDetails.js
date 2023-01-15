@@ -5,7 +5,7 @@ import DetailsCard from "../components/UI/DetailsCard";
 import YouMightAlsoLike from "../components/Body/Product Details/YouMightAlsoLike";
 import RecentlyViewed from "../components/Body/Product Details/RecentlyViewed";
 import { useState } from "react";
-import StoresMembersLove from "../components/Body/Home/StoresMembersLove"
+import StoresMembersLove from "../components/Body/Home/StoresMembersLove";
 
 const DUMMY_DATA = [
   {
@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
   const dataHandler = (dataInput) => {
     setData(dataInput);
-  }
+  };
 
   return (
     <>
@@ -48,9 +48,9 @@ const ProductDetails = () => {
         />
 
         <YouMightAlsoLike data={data} />
-        {/*<RecentlyViewed />*/}
+        {/* <RecentlyViewed /> */}
 
-        <StoresMembersLove />
+        {/* <StoresMembersLove /> */}
       </div>
     </>
   );

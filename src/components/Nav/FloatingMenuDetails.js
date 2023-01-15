@@ -2,21 +2,6 @@ import styles from "./FloatingMenuDetails.module.css";
 import RStore from "./RStore";
 import { useDispatch, useSelector } from "react-redux";
 
-const NAV_CL_DUMMY_DATA = [
-  {
-    name: "MD HOSSAIN",
-    offer: "Get 20% Discount",
-  },
-  {
-    name: "KAISER RIJVI",
-    offer: "Get 20% Discount",
-  },
-  {
-    name: "DARAZ SUPER SHOP",
-    offer: "Get 20% Discount",
-  },
-];
-
 const FloatingMenuDetails = (props) => {
   const menuData = useSelector((state) => state.nav.categoryData);
   const selectedCategory = menuData.find((menu) => menu.id === props.id);

@@ -2,18 +2,24 @@ import { Link, Redirect } from "react-router-dom";
 import styles from "./Search.module.css";
 
 const Search = (props) => {
-  const close = (id) => {
-    // <Redirect to={`/product/${id}`} />;
+  const close = () => {
     props.searchClose();
   };
-
+  const closeProduct = (id) => {
+    <Redirect to={`/product/${id}`} />;
+    props.searchClose();
+  };
+  const closeShop = (id) => {
+    <Redirect to={`/shop/${id}`} />;
+    props.searchClose();
+  };
   return (
     <>
       <div className={styles.container}>
         <div className={styles.close}>
-          {/* <p className={styles.closeText} onClick={close}>
+          <p className={styles.closeText} onClick={close}>
             Close
-          </p> */}
+          </p>
         </div>
         {props.data.length && (
           <>
@@ -33,7 +39,7 @@ const Search = (props) => {
                     className={styles.link}
                     to={`/product/${data.id}`}
                   >
-                    <div className={styles.productItems} onClick={close}>
+                    <div className={styles.productItems} onClick={closeProduct}>
                       <img
                         className={styles.piImg}
                         src={data.thumbnail_image}
@@ -56,7 +62,7 @@ const Search = (props) => {
               {props.data.shops &&
                 props.data.shops.map((data, i) => (
                   <Link key={i} className={styles.link} to={`/shop/${data.id}`}>
-                    <div className={styles.shopItems}>
+                    <div className={styles.shopItems} onClick={closeShop}>
                       <img
                         className={styles.siImg}
                         src={data.thumbnail_image}

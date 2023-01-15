@@ -41,9 +41,9 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   color: #6d6d6d;
-  height: 80px;
+  height: 60px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -59,6 +59,7 @@
 .was {
   font-size: 12px;
   color: #6d6d6d;
+  margin-left: 5px;
 }
 
 .link {

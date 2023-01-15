@@ -9,6 +9,9 @@ const SignIn = () => {
   const dispatch = useDispatch();
 
   const willRedirect = useSelector((state) => state.nav.willRedirect);
+  const userData = useSelector((state) => state.nav.userData);
+
+  console.log(userData);
 
   const [number, setNumber] = useState();
   const [numberError, setNumberError] = useState(false);
@@ -97,6 +100,7 @@ const SignIn = () => {
         console.log(data);
 
         dispatch(navSliceActions.setUserData(data));
+        // Authorization: `Bearer ${token}
 
         setUserStatus(data);
         setOtpSection(false);

@@ -5,17 +5,17 @@ import styles from "./RStore.module.css";
 const RStore = (props) => {
   return (
     <>
-      <div className={styles.container}>
-        <div>
-          <p className={styles.text}>{props.name}</p>
-          <p className={styles.offer}>{props.offer}%</p>
-        </div>
-        <div className={styles.btn}>
-          <Link to={`shop/${props.id}`}>
+      <Link className={styles.link} to={`/shop/${props.id}`}>
+        <div className={styles.container}>
+          <div>
+            <p className={styles.text}>{props.name}</p>
+            <p className={styles.offer}>{props.offer}%</p>
+          </div>
+          <div className={styles.btn}>
             <Button>{props.btn}</Button>
-          </Link>
+          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

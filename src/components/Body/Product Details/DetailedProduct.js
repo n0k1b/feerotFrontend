@@ -38,7 +38,7 @@ const DetailedProduct = (props) => {
   const getProductData = async () => {
     setIsLoading(true);
     const response = await fetch(
-      `https://admin.feerot.com/api/product_details/${id}`
+      `https://admin.feerot.com/api/product_details/${parseInt(id)}`
     );
 
     if (!response.ok) {
