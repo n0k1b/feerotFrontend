@@ -37,6 +37,7 @@ const DetailedProduct = (props) => {
 
   const getProductData = async () => {
     setIsLoading(true);
+    props.loadingHandler(true);
     const response = await fetch(
       `https://admin.feerot.com/api/product_details/${parseInt(id)}`
     );
@@ -54,11 +55,12 @@ const DetailedProduct = (props) => {
     setProductData(data.product_details);
 
     setIsLoading(false);
+    props.loadingHandler(false);
   };
 
   useEffect(() => {
     getProductData().catch((err) => console.error(err));
-  }, []);
+  }, [id]);
 
   const addToCartHandler = () => {
     dispatch(
