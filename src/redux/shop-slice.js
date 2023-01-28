@@ -66,6 +66,26 @@ export const shopSlice = createSlice({
         state.totalPrice - selectedItem.price * selectedItem.quantity;
       state.totalQuantity = state.totalQuantity - selectedItem.quantity;
     },
+
+    increaseCartItemQuantity: (state, action) => {
+      const id = parseInt(action.payload);
+      const sItem = state.cartItem.find((item) => item.id === id);
+
+      sItem.quantity++;
+      state.totalPrice += parseInt(sItem.price);
+      state.cartItem = state.cartItem.filter((item) => item.id !== id);
+      state.cartItem = [sItem, ...state.cartItem];
+    },
+
+    decreaseCartItemQuantity: (state, action) => {
+      const id = parseInt(action.payload);
+      const sItem = state.cartItem.find((item) => item.id === id);
+
+      sItem.quantity--;
+      state.totalPrice -= parseInt(sItem.price);
+      state.cartItem = state.cartItem.filter((item) => item.id !== id);
+      state.cartItem = [sItem, ...state.cartItem];
+    },
   },
 });
 

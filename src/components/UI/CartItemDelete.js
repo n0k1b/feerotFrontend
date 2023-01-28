@@ -1,14 +1,15 @@
 import styles from "./CartItemDelete.module.css";
 import { AiFillDelete } from "react-icons/ai";
-import {useDispatch} from "react-redux";
-import {shopActions} from "../../redux/shop-slice";
+import { useDispatch } from "react-redux";
+import { shopActions } from "../../redux/shop-slice";
+import CounterCart from "./CounterCart";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const deleteItemHandler = () => {
-    dispatch(shopActions.deleteCartItem(parseInt(props.id)))
-  }
+    dispatch(shopActions.deleteCartItem(parseInt(props.id)));
+  };
 
   return (
     <>
@@ -23,12 +24,17 @@ const CartItem = (props) => {
               {props.color} {props.size}
             </p>
             <p className={styles.quantity}>
-              Qty: <strong>{props.quantity}</strong>
+              <strong>
+                <CounterCart id={props.id}>{props.quantity}</CounterCart>
+              </strong>
             </p>
           </div>
         </div>
 
-        <AiFillDelete onClick={deleteItemHandler} className={styles.deleteIcon} />
+        <AiFillDelete
+          onClick={deleteItemHandler}
+          className={styles.deleteIcon}
+        />
       </div>
     </>
   );

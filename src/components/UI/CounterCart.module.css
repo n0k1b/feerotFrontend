@@ -1,0 +1,42 @@
+.container {
+  background-color: #eeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.number {
+  width: 25px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.plus {
+  width: 25px;
+  height: 50px;
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #e2e2e2;
+  padding: 0px 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.minus {
+  width: 25px;
+  height: 50px;
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #e2e2e2;
+  padding: 0px 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
