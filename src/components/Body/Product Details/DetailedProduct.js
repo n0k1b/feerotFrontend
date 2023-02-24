@@ -14,6 +14,15 @@ import { shopActions } from "../../../redux/shop-slice";
 import Counter from "../../UI/Counter";
 import { Alert, Snackbar } from "@mui/material";
 
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
 const DetailedProduct = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -26,6 +35,8 @@ const DetailedProduct = (props) => {
   const [liked, setLiked] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [addToBag, setAddToBag] = useState();
+  const [color, setColor] = useState();
+  const [size, setSize] = useState();
 
   const clickHandler = (e) => {
     setActiveImg(e.target.src);
@@ -48,7 +59,7 @@ const DetailedProduct = (props) => {
 
     const data = await response.json();
 
-    // console.log(data.product_details);
+    console.log(data.product_details);
 
     props.dataHandler(data);
 
@@ -68,8 +79,8 @@ const DetailedProduct = (props) => {
         id: productData.id,
         name: productData.name,
         price: productData.discount_price,
-        color: productData.color,
-        size: productData.size,
+        color: color,
+        size: size,
         quantity: quantity,
         image: productData.thumbnail_image,
       })
@@ -108,6 +119,21 @@ const DetailedProduct = (props) => {
       }
     }
   };
+
+  const colorHandler = (e) => {
+    setColor(e.target.value);
+  };
+
+  const sizehandleChange = (e) => {
+    setSize(e.target.value);
+  };
+
+  useEffect(() => {
+    if (!isLoading) {
+      setSize(productData.size[0]);
+      setColor(productData.color[0]);
+    }
+  }, [isLoading]);
 
   return (
     <>
@@ -158,7 +184,29 @@ const DetailedProduct = (props) => {
               offer="25% OFF EVERYTHING! IT'S AN EOFYS THING With code:"
               code="HAUL"
             />
-            <p>COLOR: {productData.color}</p>
+            <p>COLOR:</p>
+
+            <FormControl>
+              {/* <FormLabel id="demo-row-radio-buttons-group-label">
+                Color
+              </FormLabel> */}
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                onChange={colorHandler}
+                defaultValue={productData.color[0]}
+              >
+                {productData.color.map((color, i) => (
+                  <FormControlLabel
+                    key={i}
+                    value={color}
+                    control={<Radio />}
+                    label={color}
+                  />
+                ))}
+              </RadioGroup>
+            </FormControl>
 
             <div className={styles.sizeTitle}>
               <p>
@@ -167,12 +215,29 @@ const DetailedProduct = (props) => {
               <p className={styles.sizeGuide}>Size Guide</p>
             </div>
 
-            <select className={styles.sizeSelector}>
-              <option>Please Select</option>
+            {/* <select className={styles.sizeSelector}>
               {productData.size.map((size, i) => (
                 <option key={i}>{size}</option>
               ))}
-            </select>
+            </select> */}
+
+            <FormControl sx={{ mt: 1, minWidth: 120, width: 600 }} size="large">
+              <InputLabel id="demo-select-small"></InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={size}
+                label="Size"
+                onChange={sizehandleChange}
+                defaultValue={productData.size[0]}
+              >
+                {productData.size.map((size, i) => (
+                  <MenuItem key={i} value={size}>
+                    {size}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
             <div className={styles.addToBag}>
               <div

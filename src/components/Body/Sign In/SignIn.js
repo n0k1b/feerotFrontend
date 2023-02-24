@@ -29,6 +29,8 @@ const SignIn = () => {
   const [redirect, setRedirect] = useState();
   const [regError, setRegError] = useState();
 
+  const [token, setToken] = useState();
+
   const pnNextHandler = () => {
     if (parseInt(number)) {
       setNumberError(false);
@@ -98,6 +100,8 @@ const SignIn = () => {
         const data = await response.json();
 
         console.log(data);
+        console.log(data.token, "TOKEN");
+        setToken(data.token);
 
         dispatch(navSliceActions.setUserData(data));
         // Authorization: `Bearer ${token}
@@ -140,6 +144,7 @@ const SignIn = () => {
             method: "POST",
             headers: {
               "Content-Type": "applicatin/json",
+              Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
               name: fullName,
