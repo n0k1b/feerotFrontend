@@ -86,6 +86,12 @@ export const shopSlice = createSlice({
       state.cartItem = state.cartItem.filter((item) => item.id !== id);
       state.cartItem = [sItem, ...state.cartItem];
     },
+
+    emptyCart: (state) => {
+      state.cartItem = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
+    },
   },
 });
 

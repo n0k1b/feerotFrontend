@@ -177,6 +177,9 @@ const Navbar = () => {
               {userDropdown && (
                 <div className={styles.userDd}>
                   <div className={styles.containerUser}>
+                    <Link className={styles.link} to="/my_order">
+                      <p>My Order</p>
+                    </Link>
                     <p onClick={logoutHandler}>Log Out</p>
                   </div>
                 </div>

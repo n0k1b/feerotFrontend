@@ -1,13 +1,16 @@
 import { Alert, Snackbar } from "@mui/material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { shopActions } from "../../../redux/shop-slice";
 import ButtonGreen from "../../UI/ButtonGreen";
 import styles from "./DeliveryAddress.module.css";
 import Payment from "./Payment";
 
 const DeliveryAddress = () => {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.shop.cartItem);
-  const isSignedIn = useSelector((state) => state.nav.isSignedIn);
+  const token = useSelector((state) => state.nav.userData.token);
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -20,6 +23,7 @@ const DeliveryAddress = () => {
   const [formNotOk, setFormNotOk] = useState();
   const [cartEmpty, setCartEmpty] = useState();
   const [successMsg, setSuccessMsg] = useState();
+  const [redirect, setRedirect] = useState(false);
 
   const fNameChangeHandler = (e) => {
     setFirstName(e.target.value);
@@ -54,6 +58,7 @@ const DeliveryAddress = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(fData),
     });
@@ -65,6 +70,12 @@ const DeliveryAddress = () => {
     const data = await response.json();
     console.log(data);
     setSuccessMsg(data.message);
+    dispatch(shopActions.emptyCart());
+    setTimeout(redirectHandler, 3000);
+  };
+
+  const redirectHandler = () => {
+    setRedirect(true);
   };
 
   const submitFormHandler = () => {
@@ -209,6 +220,7 @@ const DeliveryAddress = () => {
       <div onClick={submitFormHandler}>
         <ButtonGreen>PLACE ORDER</ButtonGreen>
       </div>
+      {redirect && <Redirect to="/" />}
     </>
   );
 };

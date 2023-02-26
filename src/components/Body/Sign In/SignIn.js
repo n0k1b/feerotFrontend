@@ -100,8 +100,8 @@ const SignIn = () => {
         const data = await response.json();
 
         console.log(data);
-        console.log(data.token, "TOKEN");
         setToken(data.token);
+        localStorage.setItem("token", data.token);
 
         dispatch(navSliceActions.setUserData(data));
         // Authorization: `Bearer ${token}
