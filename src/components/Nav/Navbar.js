@@ -72,6 +72,7 @@ const Navbar = () => {
   const logoutHandler = () => {
     dispatch(navSliceActions.setIsSignedIn(false));
     dispatch(navSliceActions.setUserData([]));
+    localStorage.removeItem("user_data");
   };
 
   useEffect(() => {

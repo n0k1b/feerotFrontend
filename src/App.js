@@ -17,7 +17,7 @@ import SeeMore from "./Pages/SeeMore";
 import ScrollToTop from "./ScrollToTop";
 import Cart from "./Pages/Cart";
 import Footer from "./components/footer/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { homepageContentActions } from "./redux/homepage-content-slice";
 
@@ -36,6 +36,13 @@ function App() {
   const isSignedIn = useSelector((state) => state.nav.isSignedIn);
 
   useEffect(() => {
+    const user_data = JSON.parse(localStorage.getItem("user_data"));
+
+    if (user_data) {
+      dispatch(navSliceActions.setUserData(user_data));
+      dispatch(navSliceActions.setIsSignedIn(true));
+    }
+
     const homePageContentFetch = async () => {
       dispatch(homepageContentActions.setIsLoading(true));
       const response = await fetch(
