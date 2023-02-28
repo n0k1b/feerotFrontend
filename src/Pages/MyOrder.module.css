@@ -1,0 +1,9 @@
+.container {
+  height: fit-content;
+  padding: 0 10.5vw;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0px;
+}

@@ -25,21 +25,6 @@ const FloatingMenu = () => {
               <p>{data.name}</p>
             </div>
           ))}
-          {/* <div
-            onClick={electronicsHide}
-            className={showCL ? styles.active : styles.categoryTitles_clothings}
-          >
-            <p>Clothings</p>
-          </div>
-
-          <div
-            onClick={electronicsShow}
-            className={
-              showEL ? styles.active : styles.categoryTitles_electronics
-            }
-          >
-            <p>Electronics</p>
-          </div> */}
         </div>
 
         <div className={styles.categoryItems}>

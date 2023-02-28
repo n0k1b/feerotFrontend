@@ -1,0 +1,42 @@
+.container {
+  height: fit-content;
+  padding: 0 10.5vw;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.dataContainer {
+  background-color: #f2f2f2;
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin: 50px 0px;
+}
+
+.indiContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  margin-top: 20px;
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 25px;
+  margin: 5px;
+  color: #195e73;
+}
+
+.active {
+  font-size: 30px;
+  margin: 5px;
+  color: #7eca89;
+}

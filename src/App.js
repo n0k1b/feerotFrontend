@@ -27,6 +27,8 @@ import ShopPage from "./Pages/ShopPage";
 import SignInPage from "./Pages/SignInPage";
 import NavSection from "./Pages/NavSection";
 import NavSectionHelp from "./Pages/NavSectionHelp";
+import MyOrder from "./Pages/MyOrder";
+import OrderStatus from "./Pages/OrderStatus";
 
 let firstLoad = true;
 
@@ -169,6 +171,14 @@ function App() {
 
                 <Route path="/trending/:id">
                   <NavSection />
+                </Route>
+
+                <Route exact path="/my_order">
+                  <MyOrder />
+                </Route>
+
+                <Route path="/my_order/:num">
+                  <OrderStatus />
                 </Route>
               </Switch>
               <Footer />

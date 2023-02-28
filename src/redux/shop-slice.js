@@ -5,6 +5,7 @@ const initialState = {
   cartItem: [],
   totalQuantity: 0,
   totalPrice: 0,
+  orders: [],
 };
 
 export const shopSlice = createSlice({
@@ -91,6 +92,10 @@ export const shopSlice = createSlice({
       state.cartItem = [];
       state.totalQuantity = 0;
       state.totalPrice = 0;
+    },
+
+    updateOrders: (state, action) => {
+      state.orders = action.payload;
     },
   },
 });
