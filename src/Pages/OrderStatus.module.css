@@ -27,16 +27,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #195e73;
 }
 
 .icon {
   font-size: 25px;
   margin: 5px;
-  color: #195e73;
 }
 
 .active {
   font-size: 30px;
   margin: 5px;
-  color: #7eca89;
+  color: #ab003c;
 }

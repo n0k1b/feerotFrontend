@@ -11,9 +11,6 @@ const OrderStatus = () => {
   const order = dataAll.find((data) => data.order_no === num);
   console.log(order.status);
 
-  if (order.status === "pending") {
-    console.log("Working");
-  }
   return (
     <>
       <div className={styles.container}>
@@ -47,19 +44,47 @@ const OrderStatus = () => {
 
           <div className={styles.indiContainer}>
             <div className={styles.indicator}>
-              <MdAccessTimeFilled className={styles.icon} />
+              <MdAccessTimeFilled
+                className={
+                  ((order.status === "pending" ||
+                    order.status === "confirmed" ||
+                    order.status === "shipped" ||
+                    order.status === "delivered") &&
+                    styles.active) ||
+                  styles.icon
+                }
+              />
               <p>Pending</p>
             </div>
             <div className={styles.indicator}>
-              <FaCheckCircle className={styles.icon} />
+              <FaCheckCircle
+                className={
+                  ((order.status === "confirmed" ||
+                    order.status === "shipped" ||
+                    order.status === "delivered") &&
+                    styles.active) ||
+                  styles.icon
+                }
+              />
               <p>Confirmed</p>
             </div>
             <div className={styles.indicator}>
-              <MdLocalShipping className={styles.icon} />
+              <MdLocalShipping
+                className={
+                  ((order.status === "shipped" ||
+                    order.status === "delivered") &&
+                    styles.active) ||
+                  styles.icon
+                }
+              />
               <p>Shipped</p>
             </div>
             <div className={styles.indicator}>
-              <FaHome className={styles.icon} />
+              <FaHome
+                className={
+                  (order.status === "delivered" && styles.active) || styles.icon
+                }
+              />
               <p>Delivered</p>
             </div>
           </div>
