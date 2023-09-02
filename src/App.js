@@ -29,6 +29,7 @@ import NavSection from "./Pages/NavSection";
 import NavSectionHelp from "./Pages/NavSectionHelp";
 import MyOrder from "./Pages/MyOrder";
 import OrderStatus from "./Pages/OrderStatus";
+import BASE_URL from "./api";
 
 let firstLoad = true;
 
@@ -47,9 +48,7 @@ function App() {
 
     const homePageContentFetch = async () => {
       dispatch(homepageContentActions.setIsLoading(true));
-      const response = await fetch(
-        "https://admin.feerot.com/api/get_homepage_content"
-      );
+      const response = await fetch(`${BASE_URL}/get_homepage_content`);
 
       if (!response.ok) {
         return;
@@ -67,9 +66,7 @@ function App() {
 
       //NavCategoryFetch -->
 
-      const responseNC = await fetch(
-        "https://admin.feerot.com/api/get_category"
-      );
+      const responseNC = await fetch(`${BASE_URL}/get_category`);
 
       if (!responseNC.ok) {
         return;
@@ -83,9 +80,7 @@ function App() {
 
       dispatch(homepageContentActions.setIsLoading(false));
 
-      const responseNS = await fetch(
-        "https://admin.feerot.com/api/get_nav_bar_section"
-      );
+      const responseNS = await fetch(`${BASE_URL}/get_nav_bar_section`);
 
       if (!responseNS.ok) {
         return;

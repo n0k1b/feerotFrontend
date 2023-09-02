@@ -4,6 +4,7 @@ import styles from "./SeeMore.module.css";
 import SeeMoreStore from "../components/UI/SeeMoreStore";
 import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
+import BASE_URL from "../api";
 
 const SeeMore = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const SeeMore = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      `https://admin.feerot.com/api/section-shop-all/${parseInt(id)}`
+      `${BASE_URL}/section-shop-all/${parseInt(id)}`
     );
 
     if (!response.ok) {

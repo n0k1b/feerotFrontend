@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import OrderTable from "../components/UI/OrderTable";
 import { shopActions } from "../redux/shop-slice";
 import styles from "./MyOrder.module.css";
+import BASE_URL from "../api";
 
 const MyOrder = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const MyOrder = () => {
 
   const orderFetch = async () => {
     setIsLoading(true);
-    const res = await fetch("https://admin.feerot.com/api/user_order", {
+    const res = await fetch(`${BASE_URL}/user_order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

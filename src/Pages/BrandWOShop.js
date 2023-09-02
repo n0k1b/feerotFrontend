@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { shopActions } from "../redux/shop-slice";
+import BASE_URL from "../api";
 
 const BrandWOShop = (props) => {
   const [isLoading, setIsLoading] = useState();
@@ -16,9 +17,7 @@ const BrandWOShop = (props) => {
 
   const getShopData = async () => {
     setIsLoading(true);
-    const response = await fetch(
-      `https://admin.feerot.com/api/get_shop_product/${props.id}`
-    );
+    const response = await fetch(`${BASE_URL}/get_shop_product/${props.id}`);
 
     if (!response.ok) {
       return;
