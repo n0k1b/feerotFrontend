@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SeeMoreStore from "../components/UI/SeeMoreStore";
 import { useState } from "react";
+import { IMG_BASE_URL } from "../api";
 
 const NavSection = () => {
   const param = useParams();
@@ -20,7 +21,7 @@ const NavSection = () => {
             to={`/shop/${data.retailer_id}`}
           >
             <SeeMoreStore
-              image={`https://admin.feerot.com/public/${data.retailer.thumbnail_image}`}
+              image={`${IMG_BASE_URL}/${data.retailer.thumbnail_image}`}
               discount={data.retailer.discount_percentage}
               was={data.retailer.previous_discount}
             />
