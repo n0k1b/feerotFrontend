@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const HealthABeauty = () => {
   const sections = useSelector((state) => state.homepageContent.sections);
 
-  const selectedSection = sections.find((sec) => sec.section_order === "4");
+  const selectedSection = sections.find((sec) => sec.section_order === 4);
 
   return (
     <>

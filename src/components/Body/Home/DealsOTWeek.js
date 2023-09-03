@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const DealsOTWeek = () => {
   const sections = useSelector((state) => state.homepageContent.sections);
 
-  const selectedSection = sections.find((sec) => sec.section_order === "6");
+  const selectedSection = sections.find((sec) => sec.section_order === 6);
 
   return (
     <>

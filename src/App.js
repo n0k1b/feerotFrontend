@@ -55,7 +55,7 @@ function App() {
       }
 
       const data = await response.json();
-      console.log(data);
+      console.log(data, "HOME PAGE CONTENT");
 
       dispatch(homepageContentActions.setBanner(data.banner));
       dispatch(homepageContentActions.setSections(data.data));

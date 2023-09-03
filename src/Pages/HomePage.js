@@ -23,13 +23,14 @@ const HomePage = () => {
   const [haDealsOTWeek, setHasDealsOTWeek] = useState();
   const [hasFashion, setHasFashion] = useState();
 
-  const SML = sectionTitles.includes("1");
-  const topPicks = sectionTitles.includes("2");
-  const SAndF = sectionTitles.includes("3");
-  const HAndB = sectionTitles.includes("4");
-  const popular = sectionTitles.includes("5");
-  const DOTW = sectionTitles.includes("6");
-  const FashionSection = sectionTitles.includes("7");
+  const SML = sectionTitles.includes(1);
+  const topPicks = sectionTitles.includes(2);
+  const SAndF = sectionTitles.includes(3);
+  const HAndB = sectionTitles.includes(4);
+  const popular = sectionTitles.includes(5);
+  const DOTW = sectionTitles.includes(6);
+  const FashionSection = sectionTitles.includes(7);
+
 
   useEffect(() => {
     setHasStoreMLove(SML);

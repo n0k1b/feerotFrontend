@@ -8,7 +8,7 @@ const StoresMembersLove = () => {
   const dispatch = useDispatch();
   const sections = useSelector((state) => state.homepageContent.sections);
 
-  const selectedSection = sections.find((sec) => sec.section_order === "1");
+  const selectedSection = sections.find((sec) => sec.section_order === 1);
 
   let tempShop = [];
   for (let x = 0; x <= 4; x++) {
