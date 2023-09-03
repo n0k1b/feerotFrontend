@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CartComponentSmall from "../Body/Cart/CartComponentSmall";
 import Search from "./Search";
 import { navSliceActions } from "../../redux/nav-slice";
+import BASE_URL from "../../api";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -90,18 +91,15 @@ const Navbar = () => {
   };
 
   const searchResultFetch = async () => {
-    const response = await fetch(
-      "https://admin.feerot.com/api/get_search_result",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          input_value: searchText,
-        }),
-      }
-    );
+    const response = await fetch(`${BASE_URL}/get_search_result`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        input_value: searchText,
+      }),
+    });
 
     if (!response.ok) {
       return;

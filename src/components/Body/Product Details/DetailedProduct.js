@@ -21,6 +21,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import BASE_URL from "../../../api";
 
 const DetailedProduct = (props) => {
   const dispatch = useDispatch();
@@ -48,9 +49,7 @@ const DetailedProduct = (props) => {
   const getProductData = async () => {
     setIsLoading(true);
     props.loadingHandler(true);
-    const response = await fetch(
-      `https://admin.feerot.com/api/product_details/${parseInt(id)}`
-    );
+    const response = await fetch(`${BASE_URL}/product_details/${parseInt(id)}`);
 
     if (!response.ok) {
       return;

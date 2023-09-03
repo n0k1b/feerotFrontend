@@ -6,6 +6,7 @@ import { shopActions } from "../../../redux/shop-slice";
 import ButtonGreen from "../../UI/ButtonGreen";
 import styles from "./DeliveryAddress.module.css";
 import Payment from "./Payment";
+import BASE_URL from "../../../api";
 
 const DeliveryAddress = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ const DeliveryAddress = () => {
   };
 
   const postFormData = async (fData) => {
-    const response = await fetch("https://admin.feerot.com/api/submit_order", {
+    const response = await fetch(`${BASE_URL}/submit_order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

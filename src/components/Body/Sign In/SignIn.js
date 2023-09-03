@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { navSliceActions } from "../../../redux/nav-slice";
+import BASE_URL from "../../../api";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const SignIn = () => {
       setNumberError(false);
 
       const sendNumberFetch = async () => {
-        const response = await fetch("https://admin.feerot.com/api/login", {
+        const response = await fetch(`${BASE_URL}/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -79,19 +80,16 @@ const SignIn = () => {
   const otpNextHandler = () => {
     if (parseInt(otpInput) === otp) {
       const otpSecFetch = async () => {
-        const response = await fetch(
-          "https://admin.feerot.com/api/submit_otp",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              mobile_number: number,
-              otp: otp,
-            }),
-          }
-        );
+        const response = await fetch(`${BASE_URL}/submit_otp`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            mobile_number: number,
+            otp: otp,
+          }),
+        });
 
         if (!response.ok) {
           return;
@@ -138,21 +136,18 @@ const SignIn = () => {
   const regNextHandler = () => {
     if (fullName !== "" && email !== "") {
       const regFetch = async () => {
-        const response = await fetch(
-          "https://admin.feerot.com/api/registration",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "applicatin/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-              name: fullName,
-              email: email,
-              mobile_number: number,
-            }),
-          }
-        );
+        const response = await fetch(`${BASE_URL}/registration`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "applicatin/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            name: fullName,
+            email: email,
+            mobile_number: number,
+          }),
+        });
 
         if (!response.ok) {
           return;
